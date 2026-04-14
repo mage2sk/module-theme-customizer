@@ -1,0 +1,1217 @@
+/**
+ * Panth ThemeCustomizer — Global Luma Style Overrides
+ * Applies Hyva Panth/Infotech design system to ALL Luma pages
+ * Replaces default Luma grays (#ccc, #f2f2f2, #e8e8e8 etc.) with modern design tokens
+ *
+ * NOTE: LESS variable overrides are in _variables-override.less (imported first).
+ *       This file provides CSS-level overrides for selectors Luma doesn't expose as variables.
+ */
+
+& when (@media-common = true) {
+
+    // =============================================
+    // 1. TYPOGRAPHY — DM Sans, proper sizing/colors
+    // =============================================
+    body {
+        font-family: 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
+        color: @panth-gray-900;
+        background-color: @panth-surface;
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, .h1 { font-size: 40px; font-weight: 800; color: @panth-gray-950; line-height: 1.2; font-family: 'DM Sans', 'Inter', system-ui, sans-serif; margin-bottom: 16px; }
+    h2, .h2 { font-size: 32px; font-weight: 700; color: @panth-gray-900; line-height: 1.25; font-family: 'DM Sans', 'Inter', system-ui, sans-serif; margin-bottom: 12px; }
+    h3, .h3 { font-size: 28px; font-weight: 600; color: #262626; line-height: 1.3; font-family: 'DM Sans', 'Inter', system-ui, sans-serif; margin-bottom: 10px; }
+    h4, .h4 { font-size: 24px; font-weight: 600; color: #404040; line-height: 1.3; font-family: 'DM Sans', 'Inter', system-ui, sans-serif; margin-bottom: 8px; }
+    h5, .h5 { font-size: 20px; font-weight: 600; color: @panth-gray-600; line-height: 1.4; font-family: 'DM Sans', 'Inter', system-ui, sans-serif; }
+    h6, .h6 { font-size: 16px; font-weight: 600; color: #737373; line-height: 1.4; font-family: 'DM Sans', 'Inter', system-ui, sans-serif; }
+
+    p { color: #404040; line-height: 1.6; }
+
+    // HR — replaces default #ccc border
+    hr {
+        border-top: 1px solid @panth-gray-200 !important;
+        border-bottom: none;
+    }
+
+    // =============================================
+    // 2. LINKS — Teal primary color (exclude footer, header, menu areas)
+    // =============================================
+    .page-main a,
+    .page-main a:visited,
+    .sidebar a,
+    .sidebar a:visited {
+        color: @panth-primary;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .page-main a:hover,
+    .sidebar a:hover {
+        color: @panth-primary-dark;
+        text-decoration: underline;
+    }
+
+    // =============================================
+    // 3. GLOBAL BORDER OVERRIDE — Kill all #ccc borders
+    // =============================================
+    .page-wrapper,
+    .page-main,
+    .column.main {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    // =============================================
+    // 4. BUTTONS — Primary (teal), Secondary (outline)
+    // =============================================
+    // Base button font
+    .action.primary,
+    .action.tocart,
+    .action-primary,
+    .btn-primary,
+    button.action.primary {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif !important;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+        transition: background-color 0.2s, border-color 0.2s !important;
+        line-height: 1.4 !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+    }
+
+    // Primary button (teal)
+    .action.primary,
+    .action.tocart.primary,
+    button.action.primary,
+    .action-primary,
+    .checkout-methods-items .action.primary {
+        background-color: @panth-primary !important;
+        background: @panth-primary !important;
+        border: 1px solid @panth-primary !important;
+        color: @panth-white !important;
+        border-radius: 8px !important;
+        padding: 12px 24px !important;
+        font-size: 14px !important;
+    }
+
+    .action.primary:hover,
+    .action.tocart.primary:hover,
+    button.action.primary:hover,
+    .action-primary:hover {
+        background-color: @panth-primary-dark !important;
+        background: @panth-primary-dark !important;
+        border-color: @panth-primary-dark !important;
+        color: @panth-white !important;
+    }
+
+    // Ensure close/toggle/utility buttons are NOT styled as primary
+    .action.close,
+    .action.toggle,
+    .action.nav-toggle,
+    .action.skip,
+    .action.showcart,
+    button.action.close {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 4px !important;
+    }
+
+    // Secondary button (outline teal) — replaces #eee/#cdcdcd default buttons
+    button,
+    .action.secondary,
+    .action-secondary,
+    button.action.secondary {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif !important;
+        border-radius: 8px !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+    }
+
+    .action.secondary,
+    .action-secondary,
+    button.action.secondary {
+        background: transparent !important;
+        border: 1px solid @panth-primary !important;
+        color: @panth-primary !important;
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+    }
+
+    .action.secondary:hover,
+    button.action.secondary:hover {
+        background: @panth-primary-light !important;
+        color: @panth-primary-dark !important;
+        border-color: @panth-primary-dark !important;
+    }
+
+    // Add to Cart button
+    .action.tocart {
+        background: @panth-primary !important;
+        border-color: @panth-primary !important;
+        color: @panth-white !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        padding: 12px 32px !important;
+        font-size: 14px !important;
+        text-transform: none !important;
+    }
+
+    .action.tocart:hover {
+        background: @panth-primary-dark !important;
+        border-color: @panth-primary-dark !important;
+    }
+
+    // Disabled buttons
+    button[disabled],
+    .action.disabled,
+    button.disabled {
+        background: @panth-gray-200 !important;
+        border-color: @panth-gray-200 !important;
+        color: @panth-gray-400 !important;
+        cursor: not-allowed !important;
+    }
+
+    // =============================================
+    // 5. FORM ELEMENTS — Clean borders, teal focus
+    // =============================================
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="number"],
+    input[type="search"],
+    textarea {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif !important;
+        border: 1px solid @panth-gray-300 !important;
+        border-radius: 8px !important;
+        padding: 10px 14px !important;
+        font-size: 14px !important;
+        color: @panth-gray-900 !important;
+        background: @panth-white !important;
+        transition: border-color 0.2s !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    // Selects — need extra right padding for arrow, proper height & line-height
+    select,
+    .toolbar select,
+    .sorter select,
+    .limiter select,
+    .cart-summary select,
+    .field select,
+    .control select {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif !important;
+        border: 1px solid @panth-gray-300 !important;
+        border-radius: 8px !important;
+        padding: 8px 32px 8px 12px !important;
+        font-size: 14px !important;
+        color: @panth-gray-900 !important;
+        background-color: @panth-white !important;
+        transition: border-color 0.2s !important;
+        outline: none !important;
+        box-shadow: none !important;
+        height: auto !important;
+        line-height: 1.4 !important;
+        min-height: 40px !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 10px center !important;
+        background-size: 12px !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+    }
+
+    // Toolbar selects need smaller height
+    .toolbar select,
+    .sorter select,
+    .limiter select {
+        min-height: 36px !important;
+        height: 36px !important;
+        padding: 6px 30px 6px 10px !important;
+        font-size: 13px !important;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="tel"]:focus,
+    input[type="url"]:focus,
+    input[type="number"]:focus,
+    input[type="search"]:focus,
+    select:focus,
+    textarea:focus {
+        border-color: @panth-primary !important;
+        box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1) !important;
+        outline: none !important;
+    }
+
+    // Cart summary specific selects — ensure text is not cut off
+    .cart-summary select,
+    .form-shipping-address select,
+    .checkout-container select {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: @panth-gray-400;
+    }
+
+    // Labels
+    label,
+    .label {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-weight: 500;
+        color: @panth-gray-700;
+        font-size: 14px;
+    }
+
+    // Required field asterisk
+    .required > .label::after,
+    ._required > .label::after {
+        color: #DC2626;
+    }
+
+    // Field error messages
+    .field-error,
+    div.mage-error {
+        color: #DC2626 !important;
+        font-size: 12px !important;
+        margin-top: 4px !important;
+    }
+
+    // =============================================
+    // 6. MESSAGES — Success, Error, Warning, Info
+    // =============================================
+    .message {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        border-radius: 8px !important;
+        padding: 12px 16px 12px 44px !important;
+        margin-bottom: 16px !important;
+        font-size: 14px !important;
+        position: relative !important;
+    }
+
+    .message > *:first-child,
+    .message > div {
+        display: inline;
+    }
+
+    .message::before {
+        position: absolute !important;
+        left: 16px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin: 0 !important;
+    }
+
+    .message.success {
+        background: @panth-success-bg !important;
+        border: 1px solid #bbf7d0 !important;
+        color: @panth-success !important;
+    }
+
+    .message.error {
+        background: @panth-error-bg !important;
+        border: 1px solid #fecaca !important;
+        color: @panth-error !important;
+    }
+
+    .message.warning,
+    .message.notice {
+        background: @panth-warning-bg !important;
+        border: 1px solid #fde68a !important;
+        color: @panth-warning !important;
+    }
+
+    .message.info {
+        background: @panth-info-bg !important;
+        border: 1px solid #bae6fd !important;
+        color: @panth-info !important;
+    }
+
+    // =============================================
+    // 7. CARDS & PANELS — Rounded, subtle borders (replace #ccc panels)
+    // =============================================
+    .block,
+    .block-content {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    // Sidebar blocks
+    .sidebar .block {
+        border: 1px solid @panth-gray-200;
+        border-radius: 12px;
+        padding: 20px;
+        background: @panth-white;
+        margin-bottom: 16px;
+    }
+
+    .sidebar .block-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: @panth-gray-900;
+        padding-bottom: 12px;
+        border-bottom: 1px solid @panth-gray-200;
+        margin-bottom: 12px;
+    }
+
+    .sidebar .block-title strong {
+        font-weight: 700;
+    }
+
+    // =============================================
+    // 8. PRODUCT LISTING — Clean cards
+    // =============================================
+    .products-grid .product-item {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .product-item-name a,
+    .product-item-name a:visited {
+        color: @panth-gray-900;
+        font-weight: 500;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .product-item-name a:hover {
+        color: @panth-primary;
+    }
+
+    .product-item .price {
+        color: @panth-gray-900;
+        font-weight: 700;
+    }
+
+    .product-item .old-price .price {
+        color: @panth-gray-400;
+        text-decoration: line-through;
+    }
+
+    .product-item .special-price .price {
+        color: #DC2626;
+    }
+
+    // Swatches
+    .swatch-option {
+        border-radius: 6px !important;
+        border-color: @panth-gray-300 !important;
+    }
+
+    .swatch-option.selected {
+        border-color: @panth-primary !important;
+        outline-color: @panth-primary !important;
+    }
+
+    .swatch-option:hover {
+        border-color: @panth-primary !important;
+    }
+
+    // =============================================
+    // 9. PRODUCT DETAIL PAGE
+    // =============================================
+    .product-info-main .page-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: @panth-gray-950;
+    }
+
+    .product-info-main .price-box .price {
+        font-size: 28px;
+        font-weight: 700;
+        color: @panth-gray-900;
+    }
+
+    .product-info-main .old-price .price {
+        color: @panth-gray-400;
+        font-size: 20px;
+    }
+
+    .product-info-main .special-price .price {
+        color: #DC2626;
+    }
+
+    // Review stars
+    .rating-result > span::before {
+        color: #EAB308;
+    }
+
+    // Product tabs — replace default #ccc borders
+    .product.data.items {
+        border-color: @panth-gray-200 !important;
+    }
+
+    .product.data.items > .item.title > .switch {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-weight: 500;
+        color: @panth-gray-600;
+        border-color: @panth-gray-200 !important;
+        border-radius: 8px 8px 0 0;
+        background: @panth-gray-50;
+    }
+
+    .product.data.items > .item.title.active > .switch {
+        color: @panth-primary;
+        border-bottom-color: @panth-white !important;
+        background: @panth-white;
+    }
+
+    .product.data.items > .item.content {
+        border-color: @panth-gray-200 !important;
+        background: @panth-white;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    // Product detail additional info table
+    .product.info.detailed .additional-attributes {
+        border-color: @panth-gray-200;
+    }
+
+    .product.info.detailed .additional-attributes th {
+        background: @panth-gray-50;
+        border-color: @panth-gray-200;
+        color: @panth-gray-700;
+    }
+
+    .product.info.detailed .additional-attributes td {
+        border-color: @panth-gray-200;
+        color: @panth-gray-800;
+    }
+
+    // Qty input on product page
+    .product-info-main .field.qty {
+        .label {
+            font-weight: 600;
+            color: @panth-gray-700;
+        }
+    }
+
+    // =============================================
+    // 10. CART PAGE — full overrides (replaces _cart.less #ccc borders)
+    // =============================================
+    .cart-container {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    // Cart table
+    .cart.table-wrapper {
+        border: 1px solid @panth-gray-200 !important;
+        border-radius: 12px !important;
+        overflow: hidden;
+        background: @panth-white;
+    }
+
+    .cart.table-wrapper table {
+        border: none !important;
+    }
+
+    .cart.table-wrapper thead th {
+        background: @panth-gray-50 !important;
+        border-bottom: 1px solid @panth-gray-200 !important;
+        border-color: @panth-gray-200 !important;
+        color: @panth-gray-700;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        padding: 14px 16px !important;
+    }
+
+    .cart.table-wrapper tbody td {
+        border-color: @panth-gray-100 !important;
+        padding: 16px !important;
+        vertical-align: middle;
+        color: @panth-gray-800;
+    }
+
+    .cart.table-wrapper .item-actions td {
+        border-top: none !important;
+        padding-top: 0 !important;
+    }
+
+    // Cart product name
+    .cart.table-wrapper .product-item-name a {
+        color: @panth-gray-900;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .cart.table-wrapper .product-item-name a:hover {
+        color: @panth-primary;
+    }
+
+    // Cart product image
+    .cart.table-wrapper .product-image-container {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    // Cart item options
+    .cart.table-wrapper .item-options {
+        color: @panth-gray-500;
+        font-size: 13px;
+    }
+
+    .cart.table-wrapper .item-options dt {
+        font-weight: 500;
+        color: @panth-gray-600;
+    }
+
+    // Cart price
+    .cart.table-wrapper .price {
+        color: @panth-gray-900;
+        font-weight: 600;
+    }
+
+    // Cart qty input
+    .cart.table-wrapper .input-text.qty {
+        border: 1px solid @panth-gray-300 !important;
+        border-radius: 6px !important;
+        width: 56px !important;
+        height: 36px !important;
+        text-align: center !important;
+        font-size: 14px !important;
+    }
+
+    // Cart actions (update, remove)
+    .cart.table-wrapper .action-edit,
+    .cart.table-wrapper .action-delete,
+    .cart.table-wrapper .action.action-edit,
+    .cart.table-wrapper .action.action-delete {
+        color: @panth-gray-400 !important;
+    }
+
+    .cart.table-wrapper .action-edit:hover,
+    .cart.table-wrapper .action-delete:hover,
+    .cart.table-wrapper .action.action-edit:hover,
+    .cart.table-wrapper .action.action-delete:hover {
+        color: @panth-primary !important;
+    }
+
+    // Cart totals
+    .cart-totals {
+        border-top: 1px solid @panth-gray-200 !important;
+    }
+
+    .cart-totals th,
+    .cart-totals td {
+        border-color: @panth-gray-200 !important;
+        color: @panth-gray-700;
+    }
+
+    .cart-totals .grand.totals th,
+    .cart-totals .grand.totals td {
+        font-weight: 700;
+        color: @panth-gray-900;
+        border-top: 2px solid @panth-gray-200 !important;
+    }
+
+    .cart-totals .grand.totals .price {
+        font-size: 18px;
+        font-weight: 700;
+        color: @panth-gray-900;
+    }
+
+    // Cart summary panel
+    .cart-summary {
+        border: 1px solid @panth-gray-200 !important;
+        border-radius: 12px !important;
+        background: @panth-white !important;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        padding: 24px !important;
+    }
+
+    .cart-summary > .title {
+        font-weight: 700;
+        color: @panth-gray-900;
+        border-bottom: 1px solid @panth-gray-200;
+        padding-bottom: 16px;
+        margin-bottom: 16px;
+    }
+
+    .cart-summary .checkout-methods-items .action.primary.checkout {
+        background: @panth-primary !important;
+        border-color: @panth-primary !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        width: 100% !important;
+    }
+
+    .cart-summary .checkout-methods-items .action.primary.checkout:hover {
+        background: @panth-primary-dark !important;
+        border-color: @panth-primary-dark !important;
+    }
+
+    // Discount / coupon block in cart
+    .cart-summary .block > .title {
+        border-color: @panth-gray-200 !important;
+        color: @panth-gray-700;
+    }
+
+    .cart-summary .block > .content {
+        border-color: @panth-gray-200 !important;
+    }
+
+    // Shipping estimation in cart
+    .cart-summary .fieldset.estimate {
+        border-color: @panth-gray-200;
+    }
+
+    // Empty cart
+    .cart-empty {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-size: 15px;
+        color: @panth-gray-500;
+    }
+
+    // =============================================
+    // 11. CUSTOMER ACCOUNT PAGES
+    // =============================================
+    .account .page-title {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .account .block-dashboard-info,
+    .account .block-dashboard-addresses,
+    .account .block-dashboard-orders {
+        border: 1px solid @panth-gray-200;
+        border-radius: 12px;
+        background: @panth-white;
+        padding: 20px;
+    }
+
+    // Account info blocks — replace default borders
+    .account .box-information,
+    .account .box-billing-address,
+    .account .box-shipping-address,
+    .account .box-newsletter,
+    .account .block-addresses-list {
+        border-color: @panth-gray-200;
+    }
+
+    .account .box-title {
+        border-bottom: 1px solid @panth-gray-200;
+        color: @panth-gray-900;
+    }
+
+    // Account navigation
+    .account-nav,
+    .account-nav .content {
+        background: @panth-white;
+        border: 1px solid @panth-gray-200;
+        border-radius: 12px;
+    }
+
+    .account-nav .item {
+        border-bottom-color: @panth-gray-100;
+    }
+
+    .account-nav .item a,
+    .account-nav .item a:visited {
+        color: @panth-gray-600;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        padding: 10px 16px;
+        transition: background 0.15s, color 0.15s;
+    }
+
+    .account-nav .item.current a,
+    .account-nav .item.current > strong,
+    .account-nav .item a:hover {
+        color: @panth-primary;
+        background: @panth-primary-light;
+    }
+
+    // Order history tables
+    .order-products-toolbar,
+    .table-order-items {
+        border-color: @panth-gray-200 !important;
+    }
+
+    .table-order-items thead th {
+        background: @panth-gray-50 !important;
+        border-color: @panth-gray-200 !important;
+    }
+
+    .table-order-items tbody td {
+        border-color: @panth-gray-100 !important;
+    }
+
+    // =============================================
+    // 12. PAGINATION — teal active page (replaces #e5e5e5)
+    // =============================================
+    .pages .items .item a,
+    .pages .items .item strong {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        border-radius: 6px !important;
+        min-width: 36px;
+        height: 36px;
+        line-height: 36px;
+        border-color: @panth-gray-200 !important;
+    }
+
+    .pages .items .item.current strong {
+        background: @panth-primary !important;
+        color: @panth-white !important;
+        border-color: @panth-primary !important;
+    }
+
+    .pages .items .item a:hover {
+        background: @panth-primary-light !important;
+        color: @panth-primary !important;
+    }
+
+    // =============================================
+    // 13. TABLES — All pages (orders, wishlists, etc.)
+    // =============================================
+    table {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        border-color: @panth-gray-200;
+    }
+
+    table thead th {
+        background: @panth-gray-50;
+        font-weight: 600;
+        color: @panth-gray-700;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        border-color: @panth-gray-200;
+    }
+
+    table tbody td {
+        color: @panth-gray-800;
+        font-size: 14px;
+        border-color: @panth-gray-100;
+    }
+
+    table tbody tr:hover td {
+        background: @panth-gray-50;
+    }
+
+    // =============================================
+    // 14. LAYERED NAVIGATION (filters) — replace #ccc borders
+    // =============================================
+    .filter-options-title {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-weight: 600;
+        color: @panth-gray-900;
+        border-color: @panth-gray-200 !important;
+    }
+
+    .filter-options-item {
+        border-color: @panth-gray-200 !important;
+    }
+
+    .filter-options-content {
+        border-color: @panth-gray-200 !important;
+    }
+
+    .filter-options-content a,
+    .filter-options-content a:visited {
+        color: @panth-gray-600;
+        font-size: 14px;
+    }
+
+    .filter-options-content a:hover {
+        color: @panth-primary;
+    }
+
+    // Filter count
+    .filter-options-content .count {
+        color: @panth-gray-400;
+    }
+
+    // Active filter state
+    .filter-current {
+        border-color: @panth-gray-200;
+    }
+
+    .filter-current .item {
+        color: @panth-gray-700;
+    }
+
+    .filter-current .action.remove {
+        color: @panth-gray-400 !important;
+    }
+
+    .filter-current .action.remove:hover {
+        color: @panth-primary !important;
+    }
+
+    // =============================================
+    // 15. TOOLBAR (sorting, view mode, per page)
+    // =============================================
+    .toolbar-products {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        border-color: @panth-gray-200 !important;
+    }
+
+    // Toolbar selects (Sort By, Show per page)
+    .toolbar-products select,
+    .toolbar select,
+    .sorter-options,
+    .limiter-options {
+        border: 1px solid @panth-gray-300 !important;
+        border-radius: 6px !important;
+        font-size: 13px !important;
+        padding: 6px 30px 6px 10px !important;
+        height: 36px !important;
+        min-height: 36px !important;
+        line-height: 1.4 !important;
+        color: @panth-gray-700 !important;
+        background-color: @panth-white !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 8px center !important;
+        background-size: 12px !important;
+    }
+
+    .toolbar-amount {
+        color: @panth-gray-500;
+        font-size: 13px;
+    }
+
+    // Limiter text
+    .limiter .label,
+    .limiter .limiter-text {
+        font-size: 13px !important;
+        color: @panth-gray-500 !important;
+    }
+
+    // View mode (grid/list) icons
+    .modes-mode,
+    .modes-label + .modes-mode,
+    .modes .modes-mode {
+        border: 1px solid @panth-gray-300 !important;
+        color: @panth-gray-400 !important;
+        background: @panth-white !important;
+        background-color: @panth-white !important;
+        padding: 6px 10px !important;
+        margin: 0 !important;
+    }
+
+    .modes-mode::before,
+    .modes .modes-mode::before {
+        color: inherit !important;
+    }
+
+    .modes-mode + .modes-mode {
+        border-left: none !important;
+    }
+
+    .modes-mode:first-of-type {
+        border-radius: 6px 0 0 6px !important;
+    }
+
+    .modes-mode:last-of-type {
+        border-radius: 0 6px 6px 0 !important;
+    }
+
+    .modes-mode.active,
+    .modes .modes-mode.active {
+        color: @panth-primary !important;
+        border-color: @panth-primary !important;
+        background: @panth-primary-light !important;
+        background-color: @panth-primary-light !important;
+    }
+
+    .modes-mode:hover,
+    .modes .modes-mode:hover {
+        color: @panth-primary !important;
+        border-color: @panth-primary !important;
+        background: @panth-primary-light !important;
+        background-color: @panth-primary-light !important;
+    }
+
+    // Sorter action (ascending/descending arrow)
+    .sorter-action {
+        color: @panth-gray-400 !important;
+    }
+
+    .sorter-action:hover {
+        color: @panth-primary !important;
+    }
+
+    // =============================================
+    // 17. MODALS & POPUPS — replace #adadad/#c1c1c1 borders
+    // =============================================
+    .modal-popup,
+    .modal-slide {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .modal-popup .modal-header,
+    .modal-slide .modal-header {
+        border-bottom: none !important;
+    }
+
+    .modal-popup .modal-title,
+    .modal-slide .modal-title {
+        font-weight: 700;
+        color: @panth-gray-900;
+        border-color: @panth-gray-200 !important;
+    }
+
+    .modal-popup .modal-footer,
+    .modal-slide .modal-footer {
+        border-top: 1px solid @panth-gray-200 !important;
+    }
+
+    .modal-popup .modal-inner-wrap,
+    .modal-slide .modal-inner-wrap {
+        border-radius: 12px !important;
+        border: 1px solid @panth-gray-200 !important;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.12) !important;
+    }
+
+    .modal-popup .action-close,
+    .modal-slide .action-close {
+        color: @panth-gray-500 !important;
+    }
+
+    .modal-popup .action-close:hover,
+    .modal-slide .action-close:hover {
+        color: @panth-gray-900 !important;
+    }
+
+    // Confirm dialog
+    .confirm .modal-inner-wrap {
+        border-radius: 12px !important;
+    }
+
+    // =============================================
+    // 18. DROPDOWNS — replace #e8e8e8 hover
+    // =============================================
+    .ui-menu,
+    .dropdown-menu,
+    .ui-autocomplete {
+        border: 1px solid @panth-gray-200 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+        background: @panth-white;
+    }
+
+    .ui-menu .ui-menu-item:hover,
+    .ui-menu .ui-menu-item.ui-state-focus {
+        background: @panth-gray-50 !important;
+        color: @panth-primary;
+    }
+
+    // =============================================
+    // 19. WISHLIST PAGE
+    // =============================================
+    .form-wishlist-items .product-item {
+        border-color: @panth-gray-200 !important;
+    }
+
+    .form-wishlist-items .product-item-info {
+        border-color: @panth-gray-200 !important;
+    }
+
+    // =============================================
+    // 20. COMPARE PAGE
+    // =============================================
+    .table-comparison {
+        border-color: @panth-gray-200 !important;
+    }
+
+    .table-comparison thead th,
+    .table-comparison tbody th {
+        background: @panth-gray-50 !important;
+        border-color: @panth-gray-200 !important;
+    }
+
+    .table-comparison tbody td {
+        border-color: @panth-gray-200 !important;
+    }
+
+    // =============================================
+    // 21. SEARCH RESULTS
+    // =============================================
+    .search.results {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .search-autocomplete {
+        border: 1px solid @panth-gray-200 !important;
+        border-radius: 8px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+        overflow: hidden;
+    }
+
+    .search-autocomplete ul li {
+        border-color: @panth-gray-100 !important;
+    }
+
+    .search-autocomplete ul li:hover,
+    .search-autocomplete ul li.selected {
+        background: @panth-gray-50 !important;
+    }
+
+    // =============================================
+    // 22. LOGIN / REGISTRATION PAGES
+    // =============================================
+    .login-container,
+    .form-create-account {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .login-container .block {
+        border-color: @panth-gray-200;
+    }
+
+    .login-container .block-title {
+        border-bottom: 1px solid @panth-gray-200;
+        color: @panth-gray-900;
+        font-weight: 700;
+    }
+
+    .block-new-customer .block-content {
+        border-color: @panth-gray-200;
+    }
+
+    // =============================================
+    // 23. CMS PAGES — general content
+    // =============================================
+    .cms-page-view .page-main {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    // =============================================
+    // 24. GLOBAL UTILITY / PAGE CHROME
+    // =============================================
+    .page-main {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+    }
+
+    // Checkout page — remove all page-main padding (checkout manages its own spacing)
+    .checkout-index-index .page-main {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .page-title-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .page-title-wrapper .page-title {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-weight: 700;
+        color: @panth-gray-950;
+    }
+
+    // Product page — proper spacing between gallery and info
+    .catalog-product-view .column.main {
+        padding-top: 0 !important;
+    }
+
+    .catalog-product-view .product-info-main {
+        padding-top: 8px;
+    }
+
+    // Category listing page — proper spacing
+    .catalog-category-view .page-title-wrapper {
+        margin-bottom: 24px;
+    }
+
+    // Cart page
+    .checkout-cart-index .page-title-wrapper {
+        margin-bottom: 24px;
+    }
+
+    // Action links (Add to Wishlist, Compare, etc.)
+    .action.towishlist,
+    .action.tocompare {
+        color: @panth-gray-600 !important;
+        font-size: 13px !important;
+    }
+
+    .action.towishlist:hover,
+    .action.tocompare:hover {
+        color: @panth-primary !important;
+    }
+
+    // Loading indicator
+    .loading-mask .loader > img {
+        border-radius: 8px;
+    }
+
+    // Loading overlay — replaces default rgba bg
+    .loading-mask {
+        background: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    // Tooltip
+    .tooltip .tooltip-content {
+        background: @panth-gray-900 !important;
+        color: @panth-white !important;
+        border-radius: 6px !important;
+        font-size: 12px !important;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    // =============================================
+    // 25. FOOTER AREA — override any remaining #ccc
+    // =============================================
+    .page-footer {
+        border-top: none !important;
+    }
+
+    // Copyright bar
+    .copyright {
+        background: @panth-gray-900 !important;
+        color: @panth-gray-400;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-size: 13px;
+        border-top: none !important;
+    }
+
+    // =============================================
+    // 26. CONTACT PAGE
+    // =============================================
+    .contact-index-index .column.main {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    // =============================================
+    // 27. GLOBAL THIN SCROLLBAR (for all overflow areas)
+    // =============================================
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: @panth-gray-300 transparent;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: @panth-gray-300;
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: @panth-gray-400;
+    }
+
+}

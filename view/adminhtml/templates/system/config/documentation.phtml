@@ -1,0 +1,144 @@
+<?php
+/**
+ * @var \Panth\ThemeCustomizer\Block\Adminhtml\System\Config\Documentation $block
+ */
+?>
+<style>
+    .theme-customizer-documentation {
+        background: #fff;
+        padding: 20px 30px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        max-width: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .theme-customizer-documentation h1 {
+        font-size: 28px;
+        font-weight: 600;
+        margin: 20px 0 15px 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e3e3e3;
+        color: #1a1a1a;
+    }
+
+    .theme-customizer-documentation h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 25px 0 12px 0;
+        color: #2a2a2a;
+    }
+
+    .theme-customizer-documentation h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 20px 0 10px 0;
+        color: #3a3a3a;
+    }
+
+    .theme-customizer-documentation p {
+        margin: 10px 0;
+        color: #555;
+    }
+
+    .theme-customizer-documentation ul,
+    .theme-customizer-documentation ol {
+        margin: 10px 0 10px 25px;
+        padding: 0;
+    }
+
+    .theme-customizer-documentation li {
+        margin: 5px 0;
+        color: #555;
+    }
+
+    .theme-customizer-documentation code {
+        background: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 13px;
+        color: #c7254e;
+    }
+
+    .theme-customizer-documentation pre {
+        background: #f8f8f8;
+        border: 1px solid #e1e1e1;
+        border-radius: 4px;
+        padding: 15px;
+        overflow-x: auto;
+        margin: 15px 0;
+    }
+
+    .theme-customizer-documentation pre code {
+        background: transparent;
+        padding: 0;
+        color: #333;
+        font-size: 13px;
+    }
+
+    .theme-customizer-documentation a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .theme-customizer-documentation a:hover {
+        text-decoration: underline;
+    }
+
+    .theme-customizer-documentation blockquote {
+        border-left: 4px solid #ddd;
+        padding-left: 15px;
+        margin: 15px 0;
+        color: #666;
+        font-style: italic;
+    }
+
+    .theme-customizer-documentation hr {
+        border: none;
+        border-top: 1px solid #e1e1e1;
+        margin: 25px 0;
+    }
+
+    .theme-customizer-documentation table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+
+    .theme-customizer-documentation table th,
+    .theme-customizer-documentation table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .theme-customizer-documentation table th {
+        background: #f4f4f4;
+        font-weight: 600;
+    }
+
+    .theme-customizer-documentation .message {
+        padding: 12px 15px;
+        border-radius: 4px;
+        margin: 15px 0;
+    }
+
+    .theme-customizer-documentation .message-error {
+        background: #fee;
+        border: 1px solid #fcc;
+        color: #c00;
+    }
+
+    .theme-customizer-documentation .message-warning {
+        background: #ffe;
+        border: 1px solid #ffc;
+        color: #a60;
+    }
+</style>
+
+<div class="theme-customizer-documentation">
+    <?= /* @noEscape */ $block->getReadmeContent() ?>
+</div>

@@ -1,0 +1,102 @@
+<?php
+/**
+ * Copyright © Panth Infotech. All rights reserved.
+ * Documentation Page Template
+ *
+ * @var \Panth\ThemeCustomizer\Block\Adminhtml\Documentation $block
+ */
+?>
+<div class="documentation-container">
+    <div class="documentation-sidebar">
+        <div class="toc-header">
+            <h3><?= $block->escapeHtml(__('Table of Contents')) ?></h3>
+        </div>
+        <nav class="table-of-contents">
+            <?php $toc = $block->getTableOfContents(); ?>
+            <?php if (!empty($toc)): ?>
+                <ul>
+                    <?php foreach ($toc as $item): ?>
+                        <li class="toc-level-<?= (int)$item['level'] ?>">
+                            <a href="#<?= $block->escapeHtmlAttr($item['id']) ?>" class="toc-link">
+                                <?= $block->escapeHtml($item['text']) ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        </nav>
+    </div>
+
+    <div class="documentation-content">
+        <div class="content-inner">
+            <?php // phpcs:ignore Magento2.Security.LanguageConstruct.DirectOutput -- sanitised HTML ?>
+            <?= /* @noEscape */ $block->getReadmeContent() ?>
+        </div>
+    </div>
+</div>
+
+<script>
+require(['jquery'], function($) {
+    $(document).ready(function() {
+        // Smooth scrolling for anchor links
+        $('.toc-link, .anchor-link').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            var offset = 80; // Account for fixed headers
+
+            if ($(target).length) {
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top - offset
+                }, 500);
+
+                // Update URL without scrolling
+                if (history.pushState) {
+                    history.pushState(null, null, target);
+                }
+
+                // Highlight the section briefly
+                $(target).css('background-color', '#fffbeb');
+                setTimeout(function() {
+                    $(target).css('background-color', '');
+                }, 1500);
+            }
+        });
+
+        // Highlight active section in TOC on scroll
+        var tocLinks = $('.toc-link');
+        var sections = tocLinks.map(function() {
+            var id = $(this).attr('href');
+            if ($(id).length) {
+                return $(id);
+            }
+        });
+
+        $(window).on('scroll', function() {
+            var scrollPos = $(window).scrollTop() + 100;
+
+            sections.each(function(index) {
+                var section = $(this);
+                var top = section.offset().top;
+                var bottom = top + section.outerHeight();
+
+                if (scrollPos >= top && scrollPos < bottom) {
+                    tocLinks.removeClass('active');
+                    tocLinks.eq(index).addClass('active');
+                }
+            });
+        });
+
+        // Handle initial page load with hash
+        if (window.location.hash) {
+            setTimeout(function() {
+                var target = window.location.hash;
+                if ($(target).length) {
+                    $('html, body').animate({
+                        scrollTop: $(target).offset().top - 80
+                    }, 500);
+                }
+            }, 100);
+        }
+    });
+});
+</script>

@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) Panth Infotech. All rights reserved.
+ * Theme Customizer System Configuration
+ *
+ * Visual styling (colors, spacing, sizing) → theme-config.json
+ * Operational settings (toggles, fonts, custom CSS) → this admin config
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="panth" translate="label" sortOrder="200">
+            <label>🚀 Panth Extensions</label>
+        </tab>
+
+        <section id="theme_customizer" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Theme Customizer</label>
+            <tab>panth</tab>
+            <resource>Panth_ThemeCustomizer::config</resource>
+
+            <!-- Theme Configuration Info -->
+            <group id="general" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Theme Configuration</label>
+                <comment><![CDATA[
+                    <div style="padding:16px;background:#f8f9fa;border:1px solid #e0e0e0;border-radius:8px;font-size:13px;line-height:1.8;">
+                        <p style="margin:0 0 8px;"><strong>Visual Theme Settings</strong> (colors, typography, spacing, sizing) are configured in:</p>
+                        <code style="display:block;padding:8px 12px;background:#fff;border:1px solid #ddd;border-radius:4px;margin:0 0 12px;">app/design/frontend/Panth/Infotech/web/tailwind/theme-config.json</code>
+                        <p style="margin:0 0 4px;"><strong>After editing theme-config.json:</strong></p>
+                        <ol style="margin:0 0 0 20px;padding:0;">
+                            <li>Run <code>node generate-theme-css.js</code> in the tailwind directory</li>
+                            <li>Run <code>npm run build</code> to rebuild Tailwind CSS</li>
+                            <li>Flush Magento cache: <code>php bin/magento cache:flush</code></li>
+                        </ol>
+                        <p style="margin:12px 0 0;color:#666;font-style:italic;">Google Fonts and Custom CSS below are managed here because they require PHP runtime rendering.</p>
+                    </div>
+                ]]></comment>
+            </group>
+
+            <!-- Google Fonts -->
+            <group id="typography" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Fonts</label>
+                <comment><![CDATA[Select Google Fonts to load via CDN. The font is loaded as a <code>&lt;link&gt;</code> tag in the HTML head. To apply the font, also update the <code>font-family-base</code> or <code>font-family-heading</code> value in <strong>theme-config.json</strong> to match.]]></comment>
+                <field id="font_family_base" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Body Font</label>
+                    <source_model>Panth\ThemeCustomizer\Model\Config\Source\GoogleFonts</source_model>
+                    <comment><![CDATA[Font for all body text, paragraphs, buttons, inputs. "System Fonts" loads nothing from CDN (fastest). After selecting, update <code>typography.font-family-base</code> in theme-config.json to match.]]></comment>
+                    <backend_model>Magento\Framework\App\Config\Value</backend_model>
+                </field>
+                <field id="font_family_heading" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Heading Font</label>
+                    <source_model>Panth\ThemeCustomizer\Model\Config\Source\GoogleFonts</source_model>
+                    <comment><![CDATA[Font for h1-h6 headings. Leave as "System Default" to use the body font. After selecting, update <code>typography.font-family-heading</code> in theme-config.json to match.]]></comment>
+                    <backend_model>Magento\Framework\App\Config\Value</backend_model>
+                </field>
+            </group>
+
+            <!-- Custom CSS -->
+            <group id="custom_css" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom CSS</label>
+                <comment><![CDATA[Add custom CSS that will be injected into every page. This CSS is rendered inline via a <code>&lt;style&gt;</code> tag after the theme's main stylesheet. Use this for quick overrides without modifying theme files.]]></comment>
+                <field id="custom_tailwind_css" translate="label comment" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom CSS</label>
+                    <comment><![CDATA[Write standard CSS here. This will be output as an inline <code>&lt;style&gt;</code> tag on every page. Example: <code>.my-class { color: red; }</code>]]></comment>
+                    <frontend_model>Panth\ThemeCustomizer\Block\Adminhtml\System\Config\TailwindCss</frontend_model>
+                    <backend_model>Panth\ThemeCustomizer\Model\Config\Backend\TailwindCss</backend_model>
+                </field>
+            </group>
+        </section>
+
+        <!-- Header Configuration -->
+        <section id="panth_header" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Header Configuration</label>
+            <tab>panth</tab>
+            <resource>Panth_ThemeCustomizer::config</resource>
+
+            <!-- General Settings -->
+            <group id="general" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <comment><![CDATA[Header behavior settings. Visual styles (colors, border) are in <code>theme-config.json</code> under <code>header</code>.]]></comment>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Custom Header</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Use the Panth custom header instead of the default theme header</comment>
+                </field>
+                <field id="sticky_enabled" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Sticky Header</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Header stays fixed at the top when scrolling</comment>
+                </field>
+                <field id="show_on_scroll" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show on Scroll Up</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Hide sticky header when scrolling down, show when scrolling up</comment>
+                    <depends>
+                        <field id="sticky_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <!-- Top Bar -->
+            <group id="topbar" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Top Bar</label>
+                <comment><![CDATA[Announcement bar above the header. Colors are in <code>theme-config.json</code> under <code>header.topbar</code>.]]></comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Top Bar</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="left_text" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Left Side Text</label>
+                    <comment><![CDATA[Supports HTML. Example: Free Shipping on Orders Over $99]]></comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="right_text" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Right Side Text</label>
+                    <comment><![CDATA[Supports HTML. Example: Call us: 1-800-123-4567]]></comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+            </group>
+
+            <!-- Icons -->
+            <group id="icons" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Icons</label>
+                <comment><![CDATA[Icon visibility. Icon colors are in <code>theme-config.json</code> under <code>header.icons</code>.]]></comment>
+                <field id="search_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Search Icon</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="account_enabled" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Account Icon</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="minicart_enabled" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Mini Cart Icon</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="counter_style" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cart Counter Badge Style</label>
+                    <source_model>Panth\ThemeCustomizer\Model\Config\Source\CounterStyle</source_model>
+                    <comment>Shape of the item count badge on the cart icon</comment>
+                </field>
+                <field id="icon_size" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Icon Size (px)</label>
+                    <comment>Default: 24</comment>
+                    <validate>validate-digits</validate>
+                </field>
+            </group>
+
+            <!-- Mini Cart / Free Shipping -->
+            <group id="minicart" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mini Cart / Free Shipping</label>
+                <field id="free_shipping_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Free Shipping Progress</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Progress bar toward free shipping in the mini cart sidebar</comment>
+                </field>
+                <field id="free_shipping_threshold" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Free Shipping Threshold</label>
+                    <comment>Minimum order amount for free shipping (default: 99)</comment>
+                    <validate>validate-number</validate>
+                    <depends><field id="free_shipping_enabled">1</field></depends>
+                </field>
+                <field id="free_shipping_message" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Progress Message</label>
+                    <comment><![CDATA[Use <code>{amount}</code> for remaining amount. Example: Add {amount} more for free shipping!]]></comment>
+                    <depends><field id="free_shipping_enabled">1</field></depends>
+                </field>
+                <field id="free_shipping_success_message" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Success Message</label>
+                    <comment>Shown when free shipping threshold is reached</comment>
+                    <depends><field id="free_shipping_enabled">1</field></depends>
+                </field>
+                <field id="show_continue_shopping" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Continue Shopping Button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_subtotal" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Cart Subtotal</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <!-- Layout -->
+            <group id="layout" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Layout</label>
+                <comment><![CDATA[Logo dimensions and other visual sizing are in <code>theme-config.json</code> under <code>header</code>.]]></comment>
+                <field id="container_width" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Container Width</label>
+                    <source_model>Panth\ThemeCustomizer\Model\Config\Source\ContainerWidth</source_model>
+                    <comment>Width of the header content area</comment>
+                </field>
+                <field id="height" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Height (px)</label>
+                    <comment>Default: 80</comment>
+                    <validate>validate-digits</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

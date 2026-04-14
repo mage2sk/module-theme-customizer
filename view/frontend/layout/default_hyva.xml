@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Panth Infotech. All rights reserved.
+ * Hyva Layout — Remove Luma-only blocks (topbar, header icons)
+ * Hyva has its own header/topbar via theme templates
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove Luma topbar (Hyva has its own) -->
+        <referenceBlock name="panth.topbar" remove="true"/>
+        <!-- Remove Luma header icons (Hyva has its own SVG icons) -->
+        <referenceBlock name="panth.header.icons" remove="true"/>
+    </body>
+</page>

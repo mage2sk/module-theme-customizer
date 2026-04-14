@@ -1,0 +1,145 @@
+/**
+ * Panth ThemeCustomizer — Luma Variable Overrides
+ * Replaces ugly default Magento grays (#ccc, #f2f2f2, #e8e8e8 etc.)
+ * with Panth design system colors (modern, clean, matching Hyva)
+ *
+ * These LESS variable overrides cascade into ALL Luma components
+ * that reference them: buttons, borders, panels, modals, forms, pager, etc.
+ */
+
+// =============================================
+// COLOR PALETTE — Design system tokens
+// =============================================
+
+// Primary
+@panth-primary:          #0D9488;
+@panth-primary-dark:     #0F766E;
+@panth-primary-light:    #f0fdfa;
+
+// Neutrals (replaces Luma's ugly grays)
+@panth-gray-50:          #FAFAFA;
+@panth-gray-100:         #F5F5F5;
+@panth-gray-200:         #E5E7EB;
+@panth-gray-300:         #D1D5DB;
+@panth-gray-400:         #9CA3AF;
+@panth-gray-500:         #6B7280;
+@panth-gray-600:         #4B5563;
+@panth-gray-700:         #374151;
+@panth-gray-800:         #1F2937;
+@panth-gray-900:         #171717;
+@panth-gray-950:         #0A0A0A;
+
+@panth-white:            #FFFFFF;
+@panth-surface:          #FAFAFA;
+
+// Feedback colors
+@panth-success:          #166534;
+@panth-success-bg:       #f0fdf4;
+@panth-error:            #991b1b;
+@panth-error-bg:         #fef2f2;
+@panth-warning:          #92400e;
+@panth-warning-bg:       #fffbeb;
+@panth-info:             #075985;
+@panth-info-bg:          #f0f9ff;
+
+// =============================================
+// OVERRIDE LUMA BASE VARIABLES
+// =============================================
+
+// Border — replaces @color-gray80 (#ccc) → cleaner modern gray
+@border-color__base: @panth-gray-200;
+
+// Panel background — replaces @color-gray-light0 (#f6f6f6)
+@panel__background-color: @panth-gray-50;
+
+// Navigation background — replaces @color-gray94 (#f0f0f0)
+@navigation__background: @panth-white;
+
+// Link colors
+@link__color: @panth-primary;
+@link__hover__color: @panth-primary-dark;
+
+// =============================================
+// BUTTON VARIABLES
+// =============================================
+
+// Default/secondary button — replaces #eee bg, #ccc border
+@button__background: @panth-gray-100;
+@button__border: 1px solid @panth-gray-300;
+@button__hover__background: @panth-gray-200;
+@button__active__background: @panth-gray-200;
+
+// Primary button
+@button-primary__background: @panth-primary;
+@button-primary__border: 1px solid @panth-primary;
+@button-primary__color: @panth-white;
+@button-primary__hover__background: @panth-primary-dark;
+@button-primary__hover__border: 1px solid @panth-primary-dark;
+@button-primary__hover__color: @panth-white;
+@button-primary__active__background: @panth-primary-dark;
+@button-primary__active__border: 1px solid @panth-primary-dark;
+@button-primary__active__color: @panth-white;
+
+// =============================================
+// FORM VARIABLES
+// =============================================
+
+@form-element-input__border-color: @panth-gray-300;
+@form-element-input__background: @panth-white;
+@form-element-input__focus__border: @panth-primary;
+@form-element-input-placeholder__color: @panth-gray-400;
+
+// =============================================
+// DROPDOWN VARIABLES — replaces #e8e8e8 hover
+// =============================================
+
+@dropdown-list-item__hover: @panth-gray-100;
+
+// =============================================
+// PAGER VARIABLES — replaces #e5e5e5 current page
+// =============================================
+
+@pager-current__background: @panth-primary;
+@pager-current__color: @panth-white;
+
+// =============================================
+// POPUP / MODAL VARIABLES — replaces #adadad, #c1c1c1, #f4f4f4
+// =============================================
+
+@popup__border: 1px solid @panth-gray-200;
+@modal-title__border: 1px solid @panth-gray-200;
+@modal-slide-mobile__background-color: @panth-white;
+
+// =============================================
+// BREADCRUMBS
+// =============================================
+
+@breadcrumbs-link__color: @panth-gray-500;
+@breadcrumbs-link__visited__color: @panth-gray-500;
+@breadcrumbs-link__hover__color: @panth-gray-700;
+@breadcrumbs-current__color: @panth-gray-700;
+
+// =============================================
+// FOOTER — replaces @color-gray-middle4
+// =============================================
+
+@copyright__background-color: #171717;
+
+// =============================================
+// RATING STARS
+// =============================================
+
+@rating-icon__active__color: #EAB308;
+
+// =============================================
+// TEXT COLORS
+// =============================================
+
+@text__color: @panth-gray-900;
+@text__color__muted: @panth-gray-500;
+
+// =============================================
+// FOCUS — replaces blue3
+// =============================================
+
+@focus__color: @panth-primary;

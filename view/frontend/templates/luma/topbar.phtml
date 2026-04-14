@@ -1,0 +1,113 @@
+<?php
+/**
+ * Panth ThemeCustomizer — Luma Top Bar (matches Hyva promo bar)
+ * Reads config from panth_header/topbar/*
+ */
+
+$headerHelper = $this->helper(\Panth\ThemeCustomizer\Helper\HeaderConfig::class);
+
+if (!$headerHelper->isTopBarEnabled()) {
+    return;
+}
+
+$leftText = $headerHelper->getTopBarLeftText();
+$rightText = $headerHelper->getTopBarRightText();
+?>
+<style>
+/* Hide Luma's default panel header content (welcome msg, sign in, etc.) */
+.page-header .panel.header > .greet.welcome,
+.page-header .panel.header > .header.links,
+.page-header .panel.header > .action.skip,
+.page-header .panel.header > script {
+    display: none !important;
+}
+/* Show our top bar content */
+.panth-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 36px;
+    font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    font-size: 12px;
+    color: #F5F5F5;
+    padding: 0;
+}
+.panth-topbar-left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.panth-topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+.panth-topbar-close {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.15s;
+    padding: 0;
+    margin-left: 8px;
+}
+.panth-topbar-close:hover {
+    background: rgba(255,255,255,0.1);
+}
+@media (max-width: 767px) {
+    .panth-topbar-right span {
+        display: none;
+    }
+    .panth-topbar {
+        font-size: 11px;
+        min-height: 36px;
+    }
+}
+</style>
+
+<div class="panth-topbar" id="panth-topbar">
+    <div class="panth-topbar-left">
+        <?php if ($leftText): ?>
+            <span><?= /* @noEscape */ $leftText ?></span>
+        <?php endif; ?>
+    </div>
+    <?php if ($rightText): ?>
+        <div class="panth-topbar-right">
+            <span><?= /* @noEscape */ $rightText ?></span>
+            <button class="panth-topbar-close" id="panth-topbar-close"
+                    aria-label="<?= $escaper->escapeHtmlAttr(__('Close')) ?>">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    <?php endif; ?>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var closeBtn = document.getElementById('panth-topbar-close');
+    var topbar = document.getElementById('panth-topbar');
+    if (closeBtn && topbar) {
+        // Check if previously dismissed (24h expiry)
+        var hiddenUntil = localStorage.getItem('panthTopbarHiddenUntil');
+        if (hiddenUntil && (new Date().getTime() < parseInt(hiddenUntil))) {
+            topbar.parentElement.style.display = 'none';
+        }
+        closeBtn.addEventListener('click', function() {
+            topbar.parentElement.style.display = 'none';
+            localStorage.setItem('panthTopbarHiddenUntil', new Date().getTime() + (24 * 60 * 60 * 1000));
+        });
+    }
+});
+</script>

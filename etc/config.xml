@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) Panth Infotech. All rights reserved.
+ * Default Configuration Values
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <theme_customizer>
+            <!-- Google Fonts defaults -->
+            <typography>
+                <font_family_base>'Inter', sans-serif</font_family_base>
+                <font_family_heading></font_family_heading>
+            </typography>
+            <!-- Custom CSS (empty by default) -->
+            <custom_css>
+                <custom_tailwind_css></custom_tailwind_css>
+            </custom_css>
+        </theme_customizer>
+
+        <!-- Header defaults -->
+        <panth_header>
+            <general>
+                <enabled>1</enabled>
+                <sticky_enabled>1</sticky_enabled>
+                <show_on_scroll>1</show_on_scroll>
+            </general>
+            <topbar>
+                <enabled>1</enabled>
+            </topbar>
+            <icons>
+                <search_enabled>1</search_enabled>
+                <account_enabled>1</account_enabled>
+                <minicart_enabled>1</minicart_enabled>
+                <counter_style>pill</counter_style>
+                <icon_size>24</icon_size>
+            </icons>
+            <minicart>
+                <free_shipping_enabled>1</free_shipping_enabled>
+                <free_shipping_threshold>99</free_shipping_threshold>
+                <free_shipping_message>Add {amount} more for free shipping!</free_shipping_message>
+                <free_shipping_success_message>You've qualified for free shipping!</free_shipping_success_message>
+                <show_continue_shopping>1</show_continue_shopping>
+                <show_subtotal>1</show_subtotal>
+            </minicart>
+            <layout>
+                <container_width>container</container_width>
+                <height>80</height>
+            </layout>
+        </panth_header>
+    </default>
+</config>

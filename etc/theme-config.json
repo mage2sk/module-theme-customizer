@@ -1,0 +1,27 @@
+{
+  "header-topbar-bg": "#171717",
+  "header-topbar-text": "#F5F5F5",
+
+  "header-bg": "#FFFFFF",
+  "header-border": "#F5F5F5",
+  "header-height": "72px",
+
+  "header-icon-search": "#404040",
+  "header-icon-search-hover": "#0D9488",
+  "header-icon-account": "#404040",
+  "header-icon-account-hover": "#0D9488",
+  "header-icon-cart": "#404040",
+  "header-icon-cart-hover": "#0D9488",
+  "header-counter-bg": "#F97316",
+  "header-counter-text": "#FFFFFF",
+
+  "header-logo-desktop-width": "180px",
+  "header-logo-desktop-height": "48px",
+  "header-logo-mobile-width": "140px",
+  "header-logo-mobile-height": "36px",
+
+  "breadcrumb-text": "#6B7280",
+  "breadcrumb-link": "#6B7280",
+  "breadcrumb-link-hover": "#374151",
+  "breadcrumb-separator": "#9CA3AF"
+}

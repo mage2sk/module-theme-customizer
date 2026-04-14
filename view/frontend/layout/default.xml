@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Panth Infotech. All rights reserved.
+ * Default Layout - Inject Google Fonts + Custom CSS
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <!-- Google Fonts CDN link tags -->
+            <block class="Panth\ThemeCustomizer\Block\GoogleFonts"
+                   name="theme.customizer.google.fonts"
+                   template="Panth_ThemeCustomizer::google-fonts.phtml"
+                   before="-"/>
+
+            <!-- Custom CSS from Admin (Stores → Panth Theme → Custom Tailwind CSS) -->
+            <block class="Panth\ThemeCustomizer\Block\CustomCss"
+                   name="theme.customizer.custom.css"
+                   template="Panth_ThemeCustomizer::custom-css.phtml"/>
+        </referenceContainer>
+        <!-- Luma top bar: promo text matching Hyva design -->
+        <referenceContainer name="header.panel">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="panth.topbar"
+                   template="Panth_ThemeCustomizer::luma/topbar.phtml"
+                   before="-"/>
+        </referenceContainer>
+
+        <!-- Luma header: SVG icons (Search, Account, Cart) matching Hyva design -->
+        <!-- Must be inside header-wrapper (= div.header.content) for flex positioning -->
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="panth.header.icons"
+                   template="Panth_ThemeCustomizer::luma/header-icons.phtml"
+                   after="-"/>
+        </referenceContainer>
+        <referenceBlock name="panth.header.icons">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Panth\ThemeCustomizer\ViewModel\HeaderIcons</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

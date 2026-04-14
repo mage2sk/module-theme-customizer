@@ -1,0 +1,217 @@
+<?php
+/**
+ * Panth ThemeCustomizer — Luma Header Icons (Search, Account, Cart)
+ * Matches Hyva's Lucide icon style: SVG, 24x24, stroke-width 1.5
+ * Injected into header-wrapper via layout XML
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+/** @var \Panth\ThemeCustomizer\ViewModel\HeaderIcons $viewModel */
+$viewModel = $block->getData('view_model');
+$isLoggedIn = $viewModel->isLoggedIn();
+?>
+<div class="panth-header-icons" id="panth-header-icons">
+    <!-- Search Icon -->
+    <button class="panth-icon panth-icon-search" id="panth-search-toggle"
+            aria-label="<?= $escaper->escapeHtmlAttr(__('Search')) ?>"
+            type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+             stroke-width="1.5" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.34-4.34"/>
+        </svg>
+    </button>
+
+    <!-- Account Icon -->
+    <div class="panth-icon panth-icon-account" id="panth-account-toggle">
+        <button aria-label="<?= $escaper->escapeHtmlAttr(__('My Account')) ?>"
+                type="button" class="panth-account-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                 stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+        </button>
+        <div class="panth-account-dropdown" id="panth-account-dropdown" style="display:none;">
+            <?php if ($isLoggedIn): ?>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('customer/account')) ?>">My Account</a>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('sales/order/history')) ?>">My Orders</a>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('customer/account/logout')) ?>">Sign Out</a>
+            <?php else: ?>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('customer/account/login')) ?>">Sign In</a>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('customer/account/create')) ?>">Create an Account</a>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <!-- Cart Icon — triggers Luma's built-in minicart -->
+    <button class="panth-icon panth-icon-cart" id="panth-cart-toggle"
+            aria-label="<?= $escaper->escapeHtmlAttr(__('Cart')) ?>"
+            type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+             stroke-width="1.5" viewBox="0 0 24 24">
+            <circle cx="8" cy="21" r="1"/>
+            <circle cx="19" cy="21" r="1"/>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+        </svg>
+        <span class="panth-cart-count" id="panth-cart-count" style="display:none;">0</span>
+    </button>
+</div>
+
+<!-- Search bar (full-width below header, hidden by default) -->
+<div class="panth-search-bar" id="panth-search-bar" style="display:none;">
+    <div class="panth-search-inner">
+        <form class="panth-search-form" action="<?= $escaper->escapeUrl($block->getUrl('catalogsearch/result')) ?>" method="get">
+            <input type="text" name="q" placeholder="<?= $escaper->escapeHtmlAttr(__('Search entire store here...')) ?>"
+                   class="panth-search-input" autocomplete="off" id="panth-search-input" /><button type="submit" class="panth-search-submit" aria-label="<?= $escaper->escapeHtmlAttr(__('Search')) ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.34-4.34"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+
+    var searchToggle = document.getElementById('panth-search-toggle');
+    var searchBar = document.getElementById('panth-search-bar');
+    var searchInput = document.getElementById('panth-search-input');
+    var accountBtn = document.querySelector('.panth-account-btn');
+    var accountDropdown = document.getElementById('panth-account-dropdown');
+    var accountToggle = document.getElementById('panth-account-toggle');
+    var cartToggle = document.getElementById('panth-cart-toggle');
+
+    // ═══ Close all popups helper ═══
+    function closeAll(except) {
+        if (except !== 'search' && searchBar) searchBar.style.display = 'none';
+        if (except !== 'account' && accountDropdown) accountDropdown.style.display = 'none';
+    }
+
+    // ═══ SEARCH TOGGLE ═══
+    if (searchToggle && searchBar) {
+        searchToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAll('search');
+            var isVisible = searchBar.style.display !== 'none';
+            searchBar.style.display = isVisible ? 'none' : 'block';
+            if (!isVisible && searchInput) {
+                setTimeout(function() { searchInput.focus(); }, 150);
+            }
+        });
+    }
+
+    // ═══ ACCOUNT DROPDOWN ═══
+    if (accountBtn && accountDropdown) {
+        accountBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAll('account');
+            var isVisible = accountDropdown.style.display !== 'none';
+            accountDropdown.style.display = isVisible ? 'none' : 'block';
+        });
+    }
+
+    // ═══ CART — open Luma's minicart and style the dialog wrapper ═══
+    function styleMinicartDialog() {
+        // Find the jQuery UI dialog wrapper that Luma creates around .block-minicart
+        var minicartBlock = document.querySelector('.block-minicart');
+        if (!minicartBlock) return;
+
+        // The dialog wrapper is the parent with class ui-dialog or has inline styles from jQuery UI
+        var dialog = minicartBlock.closest('.ui-dialog') || minicartBlock.parentElement;
+        if (dialog && dialog !== document.body) {
+            dialog.style.cssText = 'position:fixed !important;top:0 !important;right:0 !important;bottom:0 !important;left:auto !important;width:420px !important;max-width:90vw !important;height:100vh !important;background:#fff !important;box-shadow:-4px 0 30px rgba(0,0,0,0.15) !important;border:none !important;border-radius:0 !important;z-index:1001 !important;padding:0 !important;margin:0 !important;overflow:visible !important;';
+        }
+
+        // Also style the minicart block itself
+        minicartBlock.style.cssText = 'position:relative !important;width:100% !important;height:100% !important;max-width:none !important;padding:24px !important;box-sizing:border-box !important;overflow-y:auto !important;border:none !important;box-shadow:none !important;';
+    }
+
+    if (cartToggle) {
+        cartToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAll();
+
+            var lumaCartBtn = document.querySelector('.minicart-wrapper .action.showcart');
+            if (lumaCartBtn) {
+                if (window.jQuery) {
+                    window.jQuery(lumaCartBtn).trigger('click');
+                } else {
+                    lumaCartBtn.click();
+                }
+                // Style the dialog after Luma opens it (needs small delay for jQuery UI)
+                setTimeout(styleMinicartDialog, 100);
+                setTimeout(styleMinicartDialog, 300);
+                setTimeout(styleMinicartDialog, 500);
+            } else {
+                window.location.href = '<?= $escaper->escapeJs($viewModel->getUrl('checkout/cart')) ?>';
+            }
+        });
+    }
+
+    // Also observe for minicart dialog appearing at any time
+    var bodyObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(m) {
+            m.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1 && (node.classList.contains('ui-dialog') || node.querySelector('.block-minicart'))) {
+                    setTimeout(styleMinicartDialog, 50);
+                }
+            });
+        });
+    });
+    bodyObserver.observe(document.body, { childList: true });
+
+    // ═══ Click outside closes everything ═══
+    document.addEventListener('click', function(e) {
+        if (searchBar && searchBar.style.display !== 'none' &&
+            !searchBar.contains(e.target) && !searchToggle.contains(e.target)) {
+            searchBar.style.display = 'none';
+        }
+        if (accountDropdown && accountDropdown.style.display !== 'none' &&
+            accountToggle && !accountToggle.contains(e.target)) {
+            accountDropdown.style.display = 'none';
+        }
+    });
+
+    // ═══ Escape closes everything ═══
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeAll();
+    });
+
+    // ═══ Sync cart count from Luma's minicart counter ═══
+    var panthCounter = document.getElementById('panth-cart-count');
+    function syncCartCount() {
+        var lumaCounter = document.querySelector('.minicart-wrapper .counter.qty .counter-number');
+        if (lumaCounter && panthCounter) {
+            var count = parseInt(lumaCounter.textContent) || 0;
+            if (count > 0) {
+                panthCounter.textContent = count;
+                panthCounter.style.display = 'block';
+            } else {
+                panthCounter.style.display = 'none';
+            }
+        }
+    }
+
+    var lumaCounterEl = document.querySelector('.minicart-wrapper .counter.qty');
+    if (lumaCounterEl && panthCounter) {
+        var observer = new MutationObserver(syncCartCount);
+        observer.observe(lumaCounterEl, { childList: true, subtree: true, characterData: true });
+        setTimeout(syncCartCount, 2000);
+        setTimeout(syncCartCount, 5000);
+    }
+});
+</script>

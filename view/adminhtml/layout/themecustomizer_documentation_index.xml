@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Panth Infotech. All rights reserved.
+ * Documentation Page Layout
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Panth_ThemeCustomizer::css/documentation.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Panth\ThemeCustomizer\Block\Adminhtml\Documentation"
+                   name="themecustomizer.documentation"
+                   template="Panth_ThemeCustomizer::documentation/index.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,272 @@
+/**
+ * Copyright © Panth Infotech. All rights reserved.
+ * Documentation Page Styles
+ */
+
+.documentation-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sidebar Table of Contents */
+.documentation-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.toc-header h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #0891b2;
+    padding-bottom: 10px;
+}
+
+.table-of-contents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.table-of-contents li {
+    margin: 0;
+    padding: 0;
+}
+
+.toc-link {
+    display: block;
+    padding: 8px 12px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.toc-link:hover {
+    background-color: #f9fafb;
+    color: #0891b2;
+    border-left-color: #0891b2;
+}
+
+.toc-link.active {
+    color: #0891b2;
+    font-weight: 600;
+    border-left-color: #0891b2;
+    background-color: #f0f9ff;
+}
+
+.toc-level-1 .toc-link {
+    font-weight: 600;
+    font-size: 15px;
+    color: #374151;
+}
+
+.toc-level-2 .toc-link {
+    padding-left: 24px;
+}
+
+.toc-level-3 .toc-link {
+    padding-left: 36px;
+    font-size: 13px;
+}
+
+/* Main Documentation Content */
+.documentation-content {
+    flex: 1;
+    min-width: 0;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    padding: 40px;
+}
+
+.content-inner {
+    max-width: 900px;
+}
+
+/* Typography */
+.documentation-content h1,
+.documentation-content h2,
+.documentation-content h3,
+.documentation-content h4,
+.documentation-content h5,
+.documentation-content h6 {
+    margin: 30px 0 15px 0;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #111827;
+    scroll-margin-top: 80px;
+    transition: background-color 0.3s ease;
+}
+
+.documentation-content h1 {
+    font-size: 32px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.documentation-content h2 {
+    font-size: 26px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 8px;
+}
+
+.documentation-content h3 {
+    font-size: 22px;
+}
+
+.documentation-content h4 {
+    font-size: 18px;
+}
+
+.documentation-content p {
+    margin: 15px 0;
+    line-height: 1.7;
+    color: #374151;
+    font-size: 15px;
+}
+
+/* Anchor links in headings */
+.anchor-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.anchor-link:hover {
+    color: #0891b2;
+}
+
+.anchor-link::before {
+    content: "#";
+    position: absolute;
+    left: -25px;
+    color: #0891b2;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.documentation-content h1:hover .anchor-link::before,
+.documentation-content h2:hover .anchor-link::before,
+.documentation-content h3:hover .anchor-link::before,
+.documentation-content h4:hover .anchor-link::before {
+    opacity: 1;
+}
+
+/* Code blocks */
+.documentation-content code {
+    background: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    color: #dc2626;
+}
+
+.documentation-content pre {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.documentation-content pre code {
+    background: transparent;
+    color: #e2e8f0;
+    padding: 0;
+}
+
+/* Lists */
+.documentation-content ul,
+.documentation-content ol {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.documentation-content li {
+    margin: 8px 0;
+    line-height: 1.7;
+    color: #374151;
+}
+
+/* Links */
+.documentation-content a {
+    color: #0891b2;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.documentation-content a:hover {
+    color: #0e7490;
+    border-bottom-color: #0e7490;
+}
+
+/* Tables */
+.documentation-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.documentation-content th,
+.documentation-content td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e5e7eb;
+}
+
+.documentation-content th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Blockquotes */
+.documentation-content blockquote {
+    border-left: 4px solid #0891b2;
+    background: #f0f9ff;
+    margin: 20px 0;
+    padding: 15px 20px;
+    font-style: italic;
+    color: #475569;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .documentation-container {
+        flex-direction: column;
+    }
+
+    .documentation-sidebar {
+        width: 100%;
+        position: static;
+        max-height: none;
+    }
+}
+
+/* Highlight effect for scrolled-to sections */
+@keyframes highlight {
+    from {
+        background-color: #fffbeb;
+    }
+    to {
+        background-color: transparent;
+    }
+}

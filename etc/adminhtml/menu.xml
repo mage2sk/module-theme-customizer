@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Panth_ThemeCustomizer::group"
+             title="Theme Customizer"
+             module="Panth_ThemeCustomizer"
+             sortOrder="5"
+             parent="Panth_Core::panth_extensions"
+             resource="Panth_ThemeCustomizer::config"/>
+        <add id="Panth_ThemeCustomizer::settings"
+             title="Configuration"
+             module="Panth_ThemeCustomizer"
+             sortOrder="10"
+             parent="Panth_ThemeCustomizer::group"
+             action="adminhtml/system_config/edit/section/theme_customizer"
+             resource="Panth_ThemeCustomizer::config"/>
+        <add id="Panth_ThemeCustomizer::header_config"
+             title="Header Configuration"
+             module="Panth_ThemeCustomizer"
+             sortOrder="20"
+             parent="Panth_ThemeCustomizer::group"
+             action="adminhtml/system_config/edit/section/panth_header"
+             resource="Panth_ThemeCustomizer::config"/>
+    </menu>
+</config>

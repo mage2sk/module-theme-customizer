@@ -1,0 +1,1092 @@
+/**
+ * Panth ThemeCustomizer — Luma Header, Breadcrumbs & Global Overrides
+ * Matches Hyva Panth/Infotech design system across ALL pages
+ */
+
+// 1. Override Luma LESS variables (colors, borders, buttons, forms, modals, pager)
+@import '_variables-override';
+
+// 2. Import global design system overrides (typography, buttons, forms, colors)
+@import '_global-overrides';
+
+& when (@media-common = true) {
+
+    // =============================================
+    // TOP BAR — dark bg, white text
+    // =============================================
+    .page-header .panel.wrapper {
+        background-color: #171717;
+        background-color: ~"var(--header-topbar-bg, #171717)";
+        border-bottom: none;
+    }
+
+    .page-header .panel.header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
+        min-height: 36px;
+        height: 36px;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-size: 12px;
+        color: #F5F5F5;
+        color: ~"var(--header-topbar-text, #F5F5F5)";
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    .page-header .panel.header .greet.welcome {
+        font-size: 12px;
+        color: inherit;
+    }
+
+    // Hide header links in top bar (Sign In, Create Account) — moved to account icon dropdown
+    .page-header .panel.header .header.links {
+        display: none !important;
+    }
+
+    .page-header .panel.header .action.skip {
+        position: absolute;
+        left: -9999px;
+    }
+
+    // =============================================
+    // MAIN HEADER — Logo | Menu | Icons
+    // =============================================
+    .page-header {
+        background: #fff;
+        border-bottom: none;
+        box-shadow: none;
+        margin-bottom: 0;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .page-header .header.content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0 24px;
+        min-height: 64px;
+        max-width: 1280px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    // Logo — left (order 1)
+    .page-header .header.content .logo {
+        flex-shrink: 0;
+        order: 1;
+        margin: 0;
+        padding: 0;
+        max-width: none;
+        float: none;
+    }
+
+    .page-header .header.content .logo img {
+        height: 40px;
+        width: auto;
+        max-height: 40px;
+    }
+
+    // Hide Luma's nav-toggle
+    .page-header .header.content .nav-toggle {
+        display: none !important;
+    }
+
+    // Hide Luma's default search form (replaced by SVG icon + custom search bar)
+    .page-header .header.content .block-search {
+        display: none !important;
+    }
+
+    // Hide Luma's minicart icon — keep wrapper for JS but zero-size it
+    .page-header .header.content .minicart-wrapper {
+        position: static !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+        order: 99;
+    }
+
+    .page-header .header.content .minicart-wrapper > .action.showcart {
+        display: none !important;
+    }
+
+    // Hide nav-sections
+    .nav-sections {
+        display: none;
+    }
+
+    // Hide compare products widget in header (not in Hyva design)
+    .page-header .header.content > ul {
+        display: none !important;
+    }
+
+    // =============================================
+    // PANTH HEADER ICONS — SVG Lucide icons (Search, Account, Cart)
+    // =============================================
+    .panth-header-icons {
+        display: flex !important;
+        align-items: center;
+        gap: 4px;
+        order: 3;
+        flex-shrink: 0;
+        position: relative;
+    }
+
+    .panth-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: transparent !important;
+        border: none;
+        cursor: pointer;
+        color: #404040;
+        color: ~"var(--header-icon-search, #404040)";
+        transition: color 0.2s;
+        text-decoration: none;
+        position: relative;
+        padding: 0;
+        -webkit-appearance: none;
+    }
+
+    .panth-icon:hover,
+    .panth-icon:focus,
+    .panth-icon:active,
+    .panth-icon-account:hover,
+    .panth-account-btn:hover,
+    .panth-account-btn:focus,
+    .panth-icon-search:hover,
+    .panth-icon-cart:hover {
+        color: #0D9488;
+        color: ~"var(--header-icon-search-hover, #0D9488)";
+        background: transparent !important;
+        background-color: transparent !important;
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: transparent !important;
+    }
+
+    .panth-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    // Account dropdown
+    .panth-icon-account {
+        position: relative;
+    }
+
+    .panth-account-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        cursor: pointer;
+        color: inherit;
+        padding: 0;
+        -webkit-appearance: none;
+        box-shadow: none !important;
+    }
+
+    .panth-account-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        min-width: 180px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        padding: 8px 0;
+        z-index: 200;
+        margin-top: 4px;
+    }
+
+    .panth-account-dropdown a,
+    .panth-account-dropdown a:visited {
+        display: block;
+        padding: 8px 16px;
+        font-size: 14px;
+        color: #374151;
+        text-decoration: none;
+        transition: background 0.15s, color 0.15s;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .panth-account-dropdown a:hover {
+        background: #f0fdfa;
+        color: #0D9488;
+    }
+
+    // =============================================
+    // SEARCH BAR — full-width below header on click
+    // =============================================
+    .panth-search-bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        z-index: 200;
+        background: #fff;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        padding: 12px 24px;
+    }
+
+    .panth-search-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    .panth-search-form {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        font-size: 0;
+        width: 100%;
+    }
+
+    .panth-search-form * {
+        box-sizing: border-box !important;
+    }
+
+    input.panth-search-input,
+    input.panth-search-input[type="text"] {
+        flex: 1;
+        padding: 0 16px !important;
+        border: 1px solid #d1d5db !important;
+        border-right: none !important;
+        border-radius: 8px 0 0 8px !important;
+        font-size: 14px !important;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        outline: none !important;
+        height: 44px !important;
+        line-height: 44px !important;
+        box-sizing: border-box !important;
+        color: #374151;
+        -webkit-appearance: none;
+        margin: 0 !important;
+        background: #fff !important;
+        width: auto !important;
+        min-width: 0;
+        box-shadow: none !important;
+        float: none !important;
+    }
+
+    input.panth-search-input:focus,
+    input.panth-search-input[type="text"]:focus {
+        border-color: #0D9488 !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    input.panth-search-input::placeholder {
+        color: #9ca3af;
+    }
+
+    button.panth-search-submit {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        background: #0D9488 !important;
+        color: #fff !important;
+        border: 1px solid #0D9488 !important;
+        border-left: none !important;
+        border-radius: 0 8px 8px 0 !important;
+        padding: 0 20px !important;
+        height: 44px !important;
+        box-sizing: border-box !important;
+        cursor: pointer;
+        min-width: 48px;
+        transition: background 0.15s;
+        -webkit-appearance: none;
+        margin: 0 !important;
+        font-size: 14px;
+        float: none !important;
+        flex-shrink: 0;
+    }
+
+    button.panth-search-submit:hover {
+        background: #0F766E !important;
+        border-color: #0F766E !important;
+        border-left: none !important;
+    }
+
+    // Cart icon badge
+    .panth-cart-count {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        min-width: 18px;
+        height: 18px;
+        line-height: 18px;
+        padding: 0 4px;
+        background: #F97316;
+        color: #fff;
+        border-radius: 50%;
+        font-size: 10px;
+        font-weight: 700;
+        text-align: center;
+        border: 2px solid #fff;
+    }
+
+    // =============================================
+    // BREADCRUMBS — full-width light gray bar, DM Sans
+    // =============================================
+    .breadcrumbs {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-size: 13px;
+        padding: 0 !important;
+        max-width: none !important;
+        margin: 0 !important;
+        color: #6b7280;
+        color: ~"var(--breadcrumb-text, #6b7280)";
+        background: #f9fafb !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+    }
+
+    .breadcrumbs .items {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .breadcrumbs a,
+    .breadcrumbs a:visited {
+        color: #6b7280;
+        color: ~"var(--breadcrumb-link, #6b7280)";
+        text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+        color: #374151;
+        color: ~"var(--breadcrumb-link-hover, #374151)";
+        text-decoration: underline;
+    }
+
+    .breadcrumbs .item:not(:last-child)::after {
+        content: '/';
+        margin: 0 8px;
+        color: #9ca3af;
+        color: ~"var(--breadcrumb-separator, #9ca3af)";
+    }
+
+    .breadcrumbs strong {
+        font-weight: 400;
+        color: #374151;
+    }
+
+    // =============================================
+    // MINICART DRAWER — right-side panel matching Hyva
+    // jQuery UI dialog renders at <body> level, so use global selectors
+    // =============================================
+    .block-minicart {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: auto !important;
+        width: 420px !important;
+        max-width: 90vw !important;
+        height: 100vh !important;
+        background: #fff !important;
+        box-shadow: -4px 0 30px rgba(0,0,0,0.15) !important;
+        border: none !important;
+        border-radius: 0 !important;
+        z-index: 1001 !important;
+        overflow: hidden !important;
+        padding: 24px !important;
+        margin: 0 !important;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        transform: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+
+        &::before,
+        &::after {
+            display: none !important;
+        }
+    }
+
+    // Content wrapper — takes remaining space, scrollable
+    .block-minicart #minicart-content-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    // Minicart title bar
+    .block-minicart .block-title {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #1f2937;
+        padding: 0 0 16px !important;
+        margin-bottom: 16px !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        display: block !important;
+    }
+
+    // Close button — top-right X (must override ALL global button styles)
+    #btn-minicart-close,
+    .block-minicart .action.close,
+    .block-minicart button.action.close,
+    button#btn-minicart-close {
+        position: absolute !important;
+        top: 16px !important;
+        right: 16px !important;
+        background: none !important;
+        background-color: transparent !important;
+        background-image: none !important;
+        border: none !important;
+        cursor: pointer;
+        color: #6b7280 !important;
+        padding: 0 !important;
+        z-index: 10;
+        width: 32px !important;
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 6px !important;
+        box-shadow: none !important;
+        font-size: 0 !important;
+        line-height: 1 !important;
+        min-height: 0 !important;
+        min-width: 0 !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        outline: none !important;
+
+        // Reset ALL pseudo-elements Luma might inject
+        &::before,
+        &::after {
+            display: none !important;
+        }
+    }
+
+    #btn-minicart-close:hover,
+    .block-minicart .action.close:hover,
+    button#btn-minicart-close:hover {
+        color: #1f2937 !important;
+        background: #f3f4f6 !important;
+        background-color: #f3f4f6 !important;
+        background-image: none !important;
+    }
+
+    // Show X symbol via span::before pseudo-element
+    #btn-minicart-close > span,
+    .block-minicart .action.close > span,
+    button#btn-minicart-close > span {
+        font-size: 0 !important;
+        display: block !important;
+        width: 32px !important;
+        height: 32px !important;
+        line-height: 32px !important;
+        text-align: center !important;
+        color: inherit !important;
+        clip: auto !important;
+        position: static !important;
+        overflow: visible !important;
+    }
+
+    #btn-minicart-close > span::before,
+    .block-minicart .action.close > span::before,
+    button#btn-minicart-close > span::before {
+        content: '\00D7' !important; // × symbol
+        font-size: 24px !important;
+        color: inherit !important;
+        line-height: 32px !important;
+        display: block !important;
+    }
+
+    #btn-minicart-close > span::after,
+    .block-minicart .action.close > span::after,
+    button#btn-minicart-close > span::after {
+        display: none !important;
+    }
+
+    // Cart subtitle (item count + subtotal)
+    .block-minicart .subtotal {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0 !important;
+        margin: 0 !important;
+        border-bottom: 1px solid #e5e7eb;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+    }
+
+    .block-minicart .subtotal .label {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        color: #374151;
+    }
+
+    .block-minicart .subtotal .amount .price {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #1f2937;
+    }
+
+    // Items count
+    .block-minicart .items-total {
+        font-size: 14px !important;
+        color: #6b7280;
+        padding: 8px 0 !important;
+    }
+
+    // Empty cart message
+    .block-minicart .block-content .subtitle.empty {
+        text-align: center;
+        padding: 60px 0;
+        color: #6b7280;
+        font-size: 15px;
+    }
+
+    // Cart items list — scrollable, takes available space
+    .block-minicart .minicart-items-wrapper {
+        flex: 1 !important;
+        overflow-y: auto !important;
+        padding: 0 4px 0 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        border-top: none !important;
+        border-bottom: none !important;
+        max-height: none !important;
+        min-height: 0 !important;
+
+        // Custom thin scrollbar
+        scrollbar-width: thin;
+        scrollbar-color: #d1d5db transparent;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+    }
+
+    .block-minicart .minicart-items {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    // Remove ALL borders inside minicart content area
+    .block-minicart .minicart-items-wrapper,
+    .block-minicart .block-content > .actions,
+    .block-minicart .minicart-items::before,
+    .block-minicart .minicart-items::after {
+        border: none !important;
+    }
+
+    // Remove double lines above Proceed to Checkout
+    .block-minicart .block-content > .actions::before,
+    .block-minicart .block-content > .actions::after {
+        display: none !important;
+    }
+
+    // Individual cart item — flex row: image left, details right
+    .block-minicart .minicart-items .product-item {
+        padding: 16px 0 !important;
+        border-top: none !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    .block-minicart .minicart-items .product-item:first-child {
+        border-top: none !important;
+    }
+
+    .block-minicart .minicart-items .product-item > .product {
+        display: flex !important;
+        gap: 12px !important;
+        align-items: flex-start !important;
+    }
+
+    .block-minicart .minicart-items .product-item-details {
+        padding-left: 0 !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+
+    .block-minicart .minicart-items .product-item-name {
+        margin: 0 0 4px !important;
+    }
+
+    .block-minicart .minicart-items .product-item-name a,
+    .block-minicart .minicart-items .product-item-name a:visited {
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        color: #374151 !important;
+        text-decoration: none !important;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        line-height: 1.4 !important;
+    }
+
+    .block-minicart .minicart-items .product-item-name a:hover {
+        color: #0D9488 !important;
+    }
+
+    .block-minicart .minicart-items .product-item-pricing .price {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        color: #1f2937 !important;
+    }
+
+    // Product image — square with rounded corners
+    .block-minicart .minicart-items .product-image-container {
+        width: 72px !important;
+        height: 72px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .block-minicart .minicart-items .product-image-wrapper {
+        padding-bottom: 0 !important;
+        height: 72px !important;
+    }
+
+    .block-minicart .minicart-items .product-image-photo {
+        width: 72px !important;
+        height: 72px !important;
+        object-fit: cover;
+        border-radius: 8px !important;
+        border: 1px solid #f3f4f6;
+    }
+
+    // Product details — use flex row for bottom line (price + qty + actions)
+    .block-minicart .minicart-items .product-item-details {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    // Product item pricing — inline with qty
+    .block-minicart .minicart-items .product-item-pricing {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin-top: 6px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .block-minicart .minicart-items .product-item-pricing .price-container {
+        flex-shrink: 0 !important;
+    }
+
+    // Qty: label + input + update button inline
+    .block-minicart .minicart-items .details-qty {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0;
+    }
+
+    .block-minicart .minicart-items .details-qty .label {
+        font-size: 12px !important;
+        color: #6b7280 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: inline !important;
+    }
+
+    .block-minicart .minicart-items .details-qty input {
+        width: 36px !important;
+        height: 26px !important;
+        text-align: center !important;
+        border: 1px solid #d1d5db !important;
+        border-radius: 4px !important;
+        font-size: 12px !important;
+        padding: 0 4px !important;
+        margin: 0 !important;
+    }
+
+    // Update button — small teal pill
+    .block-minicart .minicart-items .update-cart-item {
+        font-size: 11px !important;
+        padding: 3px 8px !important;
+        background: #0D9488 !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 4px !important;
+        cursor: pointer;
+        line-height: 1.3 !important;
+        margin: 0 !important;
+    }
+
+    .block-minicart .minicart-items .update-cart-item:hover {
+        background: #0F766E !important;
+    }
+
+    // Edit + Delete icons — SAME ROW as pricing, pushed to far right
+    .block-minicart .minicart-items .product .actions,
+    .block-minicart .minicart-items .product-item .actions {
+        position: absolute !important;
+        right: 0 !important;
+        bottom: 16px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    // Make product item relative for absolute positioning of actions
+    .block-minicart .minicart-items .product-item {
+        position: relative !important;
+    }
+
+    .block-minicart .minicart-items .action.edit,
+    .block-minicart .minicart-items .action.delete {
+        font-size: 0 !important;
+        color: #9ca3af !important;
+        background: none !important;
+        border: none !important;
+        padding: 4px !important;
+        cursor: pointer;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .block-minicart .minicart-items .action.edit::before,
+    .block-minicart .minicart-items .action.delete::before {
+        font-size: 15px !important;
+        color: inherit !important;
+    }
+
+    .block-minicart .minicart-items .action.edit:hover,
+    .block-minicart .minicart-items .action.delete:hover {
+        color: #0D9488 !important;
+    }
+
+    // Config product options (Size, Color etc)
+    .block-minicart .minicart-items .product.options {
+        margin-top: 4px !important;
+        padding: 0 !important;
+    }
+
+    .block-minicart .minicart-items .product.options .toggle {
+        font-size: 12px !important;
+        color: #0D9488 !important;
+        cursor: pointer;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+    }
+
+    .block-minicart .minicart-items .product.options .content {
+        padding: 4px 0 0 !important;
+        margin: 0 !important;
+    }
+
+    .block-minicart .minicart-items .product.options .subtitle {
+        display: none !important;
+    }
+
+    .block-minicart .minicart-items .product.options dt {
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        color: #6b7280 !important;
+        float: left !important;
+        margin-right: 4px !important;
+    }
+
+    .block-minicart .minicart-items .product.options dd {
+        font-size: 12px !important;
+        color: #374151 !important;
+        margin: 0 0 2px !important;
+    }
+
+    .block-minicart .minicart-items .product.options dl {
+        margin: 0 !important;
+    }
+
+    // Checkout buttons — pinned to bottom
+    .block-minicart .block-content > .actions {
+        padding: 16px 0 0 !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+        border-top: 1px solid #e5e7eb;
+        margin-top: auto !important;
+    }
+
+    // Make block-content flex column too
+    .block-minicart .block-content {
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .block-minicart .block-content > .actions > .primary .action.primary,
+    .block-minicart #top-cart-btn-checkout {
+        background: #0D9488 !important;
+        border-color: #0D9488 !important;
+        border-radius: 8px !important;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-weight: 600 !important;
+        padding: 12px 24px !important;
+        width: 100% !important;
+        text-align: center !important;
+        display: block !important;
+        color: #fff !important;
+        font-size: 14px !important;
+        box-sizing: border-box;
+        text-decoration: none !important;
+        margin: 0 !important;
+        line-height: 1.4 !important;
+    }
+
+    .block-minicart .block-content > .actions > .primary .action.primary:hover,
+    .block-minicart #top-cart-btn-checkout:hover {
+        background: #0F766E !important;
+        border-color: #0F766E !important;
+    }
+
+    // View and Edit Cart link
+    .block-minicart .block-content > .actions > .secondary a,
+    .block-minicart .block-content > .actions .viewcart {
+        display: block !important;
+        text-align: center !important;
+        padding: 10px 24px !important;
+        margin-top: 8px !important;
+        font-size: 14px !important;
+        color: #0D9488 !important;
+        text-decoration: none !important;
+        border: 1px solid #0D9488 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        background: transparent !important;
+        transition: background 0.15s;
+    }
+
+    .block-minicart .block-content > .actions > .secondary a:hover,
+    .block-minicart .block-content > .actions .viewcart:hover {
+        background: #f0fdfa !important;
+    }
+
+    // Remove any stray borders/outlines inside minicart
+    .block-minicart .block-content > .actions,
+    .block-minicart .block-content > .actions > .primary,
+    .block-minicart .block-content > .actions > .secondary,
+    .block-minicart .block-content > .actions .smart-buttons,
+    .block-minicart .paypal-button,
+    .block-minicart .braintree-paypal-message {
+        border: none !important;
+        outline: none !important;
+    }
+
+    // Hide PayPal/Braintree smart buttons (not in Hyva minicart)
+    .block-minicart .block-content > .actions .smart-buttons {
+        display: none !important;
+    }
+
+    // Subtotal row styling
+    .block-minicart .subtotal {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 12px 0 !important;
+        margin: 0 !important;
+        border: none !important;
+    }
+
+    // Items total count
+    .block-minicart .items-total {
+        font-size: 13px !important;
+        color: #6b7280 !important;
+        padding: 4px 0 8px !important;
+        margin: 0 !important;
+    }
+
+    // Overlay
+    .modals-overlay {
+        z-index: 1000 !important;
+        background: rgba(0,0,0,0.4) !important;
+    }
+}
+
+// =============================================
+// DESKTOP OVERRIDES — beat Luma's desktop-specific rules
+// =============================================
+@media screen and (min-width: 768px) {
+
+    .page-header {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+    }
+
+    .page-header .panel.wrapper {
+        background-color: #171717 !important;
+        border-bottom: none !important;
+    }
+
+    .page-header .panel.header {
+        display: flex !important;
+        color: #F5F5F5 !important;
+    }
+
+    // Hide Luma's default header links (moved to account dropdown + topbar template)
+    .header.panel > .header.links {
+        display: none !important;
+    }
+
+    .page-header .header.content {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px !important;
+        min-height: 64px;
+        max-width: 1280px;
+    }
+
+    .page-header .header.content .logo {
+        order: 1;
+        flex-shrink: 0;
+        margin: 0 !important;
+        max-width: none !important;
+        float: none !important;
+    }
+
+    .page-header .header.content .block-search {
+        display: none !important;
+    }
+
+    .page-header .header.content .minicart-wrapper {
+        position: static !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: visible !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .page-header .header.content .minicart-wrapper > .action.showcart {
+        display: none !important;
+    }
+
+    .nav-toggle {
+        display: none !important;
+    }
+
+    .panth-header-icons {
+        order: 3;
+    }
+
+    .breadcrumbs {
+        font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+        font-size: 13px;
+        padding: 12px 24px;
+        max-width: none !important;
+        margin: 0 !important;
+        color: #6b7280;
+        background: #f9fafb !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+    }
+}
+
+// =============================================
+// MOBILE
+// =============================================
+@media screen and (max-width: 767px) {
+
+    // Mobile top bar — must override Luma's mobile styles
+    .page-header .panel.wrapper {
+        background-color: #171717 !important;
+    }
+
+    .page-header .panel.header .greet.welcome {
+        display: none;
+    }
+
+    .page-header .panel.header .header.links {
+        display: none !important;
+    }
+
+    .page-header .panel.header {
+        min-height: 36px;
+        font-size: 11px;
+        color: #F5F5F5 !important;
+    }
+
+    // Mobile minicart — full width on small screens
+    .block-minicart {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    .page-header .header.content {
+        flex-wrap: nowrap;
+        min-height: 56px;
+        padding: 0 16px !important;
+    }
+
+    .page-header .header.content .logo {
+        order: 2;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        max-width: none !important;
+    }
+
+    .page-header .header.content .logo img {
+        max-height: 32px;
+        height: 32px;
+    }
+
+    .panth-header-icons {
+        order: 3;
+        gap: 2px;
+    }
+
+    .panth-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .panth-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .panth-search-bar {
+        padding: 8px 16px;
+    }
+
+    .breadcrumbs {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}

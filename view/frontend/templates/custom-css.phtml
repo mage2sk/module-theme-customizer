@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright (c) Panth Infotech. All rights reserved.
+ * Custom CSS Template - Simplified
+ *
+ * Only outputs custom Tailwind CSS from admin config.
+ * All color/style CSS is now generated from theme-config.json by the Node.js build.
+ *
+ * @var \Panth\ThemeCustomizer\Block\CustomCss $block
+ */
+
+$customCss = $block->getCustomTailwindCss();
+?>
+<?php if ($customCss): ?>
+<style type="text/css">
+/* Custom Tailwind CSS from Admin */
+<?= /* @noEscape */ $customCss ?>
+</style>
+<?php endif; ?>

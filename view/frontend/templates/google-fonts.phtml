@@ -1,0 +1,15 @@
+<?php
+/**
+ * Copyright © Panth Infotech. All rights reserved.
+ * Google Fonts Loader Template
+ *
+ * @var \Panth\ThemeCustomizer\Block\GoogleFonts $block
+ */
+
+$fontsUrl = $block->getGoogleFontsUrl();
+?>
+<?php if ($fontsUrl): ?>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="<?= $block->escapeUrl($fontsUrl) ?>" rel="stylesheet">
+<?php endif; ?>

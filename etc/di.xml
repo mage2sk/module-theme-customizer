@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) Panth Infotech. All rights reserved.
+ * Theme Customizer Dependency Injection Configuration
+ *
+ * Simplified: CssExporter args and config save plugin removed.
+ * Theme config is now in theme-config.json, processed by Node.js build script.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Register CLI Commands -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="theme_customizer_build" xsi:type="object">Panth\ThemeCustomizer\Console\Command\BuildTheme</item>
+                <item name="theme_customizer_check" xsi:type="object">Panth\ThemeCustomizer\Console\Command\CheckRequirements</item>
+                <item name="panth_theme_export_css" xsi:type="object">Panth\ThemeCustomizer\Console\Command\ExportCss</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Override Panth_Core's no-op default with the real BuildExecutor.
+         Flips the admin "Rebuild Child Theme" button from "module not
+         installed" to a working build whenever this ThemeCustomizer
+         module is enabled alongside Core. -->
+    <preference for="Panth\Core\Api\ThemeBuildExecutorInterface"
+                type="Panth\ThemeCustomizer\Model\BuildExecutor"/>
+</config>

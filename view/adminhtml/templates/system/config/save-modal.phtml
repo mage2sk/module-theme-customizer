@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Panth Infotech. All rights reserved.
+ * Theme Customizer Save Modal Template
+ */
+
+/** @var \Magento\Backend\Block\Template $block */
+$buildUrl = $block->getUrl('themecustomizer/build/ajax');
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Panth_ThemeCustomizer/js/config-save-modal": {
+            "buildUrl": "<?= $block->escapeUrl($buildUrl) ?>"
+        }
+    }
+}
+</script>
