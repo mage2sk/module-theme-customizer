@@ -9,6 +9,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="Panth_ThemeCustomizer">
         <sequence>
+            <module name="Panth_Core"/>
             <module name="Magento_Theme"/>
             <module name="Magento_Backend"/>
             <module name="Magento_Config"/>
