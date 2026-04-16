@@ -115,9 +115,10 @@
         display: none !important;
     }
 
-    // Nav-sections visibility is controlled by MegaMenu RemoveDefaultNavigation plugin (per-store).
-    // Do NOT hide via CSS — it breaks stores where MegaMenu is disabled.
-    // .nav-sections { display: none; }
+    // Hide nav-sections (Panth MegaMenu replaces native navigation)
+    .nav-sections {
+        display: none;
+    }
 
     // Hide compare products widget in header (not in Hyva design)
     .page-header .header.content > ul {

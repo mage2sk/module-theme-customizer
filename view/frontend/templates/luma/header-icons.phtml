@@ -4,34 +4,12 @@
  * Matches Hyva's Lucide icon style: SVG, 24x24, stroke-width 1.5
  * Injected into header-wrapper via layout XML
  *
- * When the Panth custom header is DISABLED for this store, we inject
- * CSS to undo the _module.less hiding of native Luma elements.
- *
  * @var \Magento\Framework\View\Element\Template $block
  * @var \Magento\Framework\Escaper $escaper
  */
 
 /** @var \Panth\ThemeCustomizer\ViewModel\HeaderIcons $viewModel */
 $viewModel = $block->getData('view_model');
-
-// Check if Panth custom header is enabled for this store
-$headerHelper = $this->helper(\Panth\ThemeCustomizer\Helper\HeaderConfig::class);
-if (!$headerHelper->isEnabled()) {
-    // Panth header is DISABLED — undo _module.less CSS that hides native Luma elements
-    ?>
-    <style>
-    .page-header .header.content .nav-toggle { display: inline-block !important; }
-    .page-header .header.content .block-search { display: block !important; }
-    .page-header .header.content .minicart-wrapper { width: auto !important; height: auto !important; overflow: visible !important; position: relative !important; }
-    .page-header .header.content .minicart-wrapper > .action.showcart { display: inline-block !important; }
-    .nav-sections { display: block !important; }
-    .page-header .panel.header .header.links { display: inline !important; }
-    .page-header .header.content > ul { display: block !important; }
-    .panth-header-icons { display: none !important; }
-    </style>
-    <?php
-    return;
-}
 
 $isLoggedIn = $viewModel->isLoggedIn();
 ?>
