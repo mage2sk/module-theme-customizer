@@ -59,7 +59,7 @@ class BuildTheme extends Command
      * @param OutputInterface $output
      * @return int
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Hyva Theme Customizer Build</info>');
         $output->writeln('<comment>Theme config is read from theme-config.json by the Node.js build script.</comment>');

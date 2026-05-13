@@ -4,6 +4,22 @@ All notable changes to this extension are documented here. The format
 is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.5] -- 2026-05-13
+
+### Fixed
+- **Magento 2.4.9 / Symfony 7.4 compatibility** -- added the `: int`
+  return type to every `execute()` method in `Console/Command/`
+  (`BuildTheme`, `CheckRequirements`, `ExportCss`). Symfony 7 enforces
+  the strictly typed signature on `Command::execute()`, so the previous
+  untyped declarations triggered a fatal LSP error during the Magento
+  bootstrap, blocking `bin/magento` entirely on 2.4.9 / PHP 8.4. All
+  return paths already returned `Command::SUCCESS` / `Command::FAILURE`,
+  so behaviour is unchanged.
+
+### Compatibility
+- Magento Open Source / Commerce / Cloud 2.4.4 -- 2.4.9
+- PHP 8.1, 8.2, 8.3, 8.4
+
 ## [1.0.0] -- Initial release
 
 ### Added

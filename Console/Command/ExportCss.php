@@ -22,7 +22,7 @@ class ExportCss extends Command
             ->setDescription('[DEPRECATED] CSS export is no longer needed - theme config is now in theme-config.json');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<comment>DEPRECATED: This command is no longer needed.</comment>');
         $output->writeln('');
