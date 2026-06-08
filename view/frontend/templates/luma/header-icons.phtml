@@ -1,6 +1,6 @@
 <?php
 /**
- * Panth ThemeCustomizer — Luma Header Icons (Search, Account, Cart)
+ * Panth ThemeCustomizer - Luma Header Icons (Search, Account, Cart)
  * Matches Hyva's Lucide icon style: SVG, 24x24, stroke-width 1.5
  * Injected into header-wrapper via layout XML
  *
@@ -49,7 +49,7 @@ $isLoggedIn = $viewModel->isLoggedIn();
         </div>
     </div>
 
-    <!-- Cart Icon — triggers Luma's built-in minicart -->
+    <!-- Cart Icon - triggers Luma's built-in minicart -->
     <button class="panth-icon panth-icon-cart" id="panth-cart-toggle"
             aria-label="<?= $escaper->escapeHtmlAttr(__('Cart')) ?>"
             type="button">
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ═══ CART — open Luma's minicart and style the dialog wrapper ═══
+    // ═══ CART - open Luma's minicart and style the dialog wrapper ═══
     function styleMinicartDialog() {
         // Find the jQuery UI dialog wrapper that Luma creates around .block-minicart
         var minicartBlock = document.querySelector('.block-minicart');
