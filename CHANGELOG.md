@@ -4,6 +4,21 @@ All notable changes to this extension are documented here. The format
 is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.7] -- 2026-06-18
+
+### Changed
+- Rewrote README.md to match the Panth Infotech documentation standard: added
+  Quick Answer block, updated Configuration table with all real system.xml
+  fields from both `theme_customizer` and `panth_header` sections, added Who
+  Is It For section, restructured Key Features by feature area, added FAQ
+  covering multi-currency, Node.js requirement, and per-store scoping, added
+  proper Quick Links table, and updated canonical URL and SEO meta to point to
+  the live product page.
+
+### Compatibility
+- Magento Open Source / Commerce / Cloud 2.4.4 -- 2.4.8
+- PHP 8.1, 8.2, 8.3, 8.4
+
 ## [1.0.5] -- 2026-05-13
 
 ### Fixed

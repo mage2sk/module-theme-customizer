@@ -1,36 +1,51 @@
 <!-- SEO Meta -->
 <!--
-  Title: Panth Theme Customizer - Hyva Theme Builder for Magento 2 | Panth Infotech
-  Description: Panth Theme Customizer is a backend-driven Hyva theme configuration module for Magento 2. Manage colors, Google Fonts typography, Tailwind CSS tokens, custom CSS injection, header layouts, sticky header, free shipping progress bar, and icon controls - all without touching code. Compatible with Magento 2.4.4 - 2.4.8 and PHP 8.1 - 8.4. Built by Top Rated Plus Magento developer Kishan Savaliya.
-  Keywords: magento 2 theme customizer, hyva theme builder, css custom properties, google fonts magento, tailwind magento, theme tokens, hyva theme configuration, magento 2 color palette, magento 2 typography, hyva sticky header, free shipping progress bar magento
+  Title: Magento 2 Hyva Theme Customizer: Google Fonts, Custom CSS, Sticky Header, Free Shipping Bar | Panth Infotech
+  Description: Panth Theme Customizer lets you configure your Hyva Magento 2 storefront from the admin panel. Control Google Fonts, inject custom CSS, enable sticky header, set a free shipping progress bar in the mini cart, and manage header icons without touching code. Works on Magento 2.4.4 to 2.4.8 and PHP 8.1 to 8.4. Built by Top Rated Plus developer Kishan Savaliya.
+  Keywords: magento 2 theme customizer, hyva theme builder, google fonts magento 2, magento 2 custom css, hyva sticky header, free shipping progress bar magento, magento 2 header configuration, hyva theme configuration, magento 2 admin theme editor, magento 2 topbar announcement, hyva tailwind css
   Author: Kishan Savaliya (Panth Infotech)
-  Canonical: https://github.com/mage2sk/module-theme-customizer
+  Canonical: https://kishansavaliya.com/magento-2-theme-customizer.html
 -->
 
-# Hyva Theme Customizer — Backend-Driven Theme Builder for Magento 2 | Panth Infotech
+# Magento 2 Hyva Theme Customizer: Google Fonts, Custom CSS, Sticky Header, Free Shipping Bar
 
 [![Magento 2.4.4 - 2.4.8](https://img.shields.io/badge/Magento-2.4.4%20--%202.4.8-orange?logo=magento&logoColor=white)](https://magento.com)
 [![PHP 8.1 - 8.4](https://img.shields.io/badge/PHP-8.1%20--%208.4-blue?logo=php&logoColor=white)](https://php.net)
-[![Hyva Theme](https://img.shields.io/badge/Hyva-Theme%20Ready-7C3AED?logo=tailwindcss&logoColor=white)](https://hyva.io)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Hyva Theme](https://img.shields.io/badge/Themes-Hyva-14b8a6)](https://www.hyva.io)
+[![Live Demo & Details](https://img.shields.io/badge/Live%20Demo%20%26%20Details-magento--2--theme--customizer-0D9488?style=flat)](https://kishansavaliya.com/magento-2-theme-customizer.html)
 [![Packagist](https://img.shields.io/badge/Packagist-mage2kishan%2Fmodule--theme--customizer-orange?logo=packagist&logoColor=white)](https://packagist.org/packages/mage2kishan/module-theme-customizer)
 [![Upwork Top Rated Plus](https://img.shields.io/badge/Upwork-Top%20Rated%20Plus-14a800?logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~016dd1767321100e21)
-[![Panth Infotech Agency](https://img.shields.io/badge/Agency-Panth%20Infotech-14a800?logo=upwork&logoColor=white)](https://www.upwork.com/agencies/1881421506131960778/)
 [![Website](https://img.shields.io/badge/Website-kishansavaliya.com-0D9488)](https://kishansavaliya.com)
 
-> **Backend-driven theme configuration** for Hyva-powered Magento 2 storefronts. Manage your entire design system — colors, typography, Google Fonts, Tailwind CSS tokens, custom CSS, header layout, sticky header behavior, free shipping progress bar, and icon controls — directly from the Magento admin panel without touching a single line of code or running a Tailwind rebuild manually.
+> **Configure your Hyva storefront from the Magento admin panel.** Panth Theme Customizer lets you load Google Fonts, inject custom CSS, enable a sticky header, show a free shipping progress bar in the mini cart, control header icons, add a top bar announcement strip, and trigger a Tailwind CSS rebuild - all without touching theme files.
 
-**Panth Theme Customizer** turns your Hyva theme into a fully configurable design system. It exposes every brand-critical token — primary color, secondary color, accent color, body font, heading font, border radius, spacing, header height, icon set — as admin settings, then compiles them into CSS custom properties and Tailwind config that your frontend consumes live. Change a color in admin, click save, and watch your storefront update instantly.
-
-Under the hood, the module leverages CSS custom properties (CSS variables) so the entire color palette and typography system can be swapped without rebuilding your theme for most changes. For Tailwind-driven updates, a one-click "Rebuild Theme" button triggers the Hyva build pipeline from admin. Typography integrates directly with Google Fonts — pick any font from the Google Fonts library, and the module handles preloading, font-display optimization, and layered fallbacks automatically.
-
-Beyond tokens, Theme Customizer ships ready-to-use storefront components: a configurable sticky header with scroll thresholds, a free shipping progress bar that shows shoppers how close they are to free delivery, header layout variants (centered logo, split navigation, minimal), and an icon library switcher (Heroicons outline/solid, Lucide, custom SVG). Everything is multi-store aware, so each store view can have its own brand identity.
+**Product page:** [kishansavaliya.com/magento-2-theme-customizer.html](https://kishansavaliya.com/magento-2-theme-customizer.html)
 
 ---
 
-## 🚀 Need Custom Hyva Theme Development?
+## Quick Answer
 
-> **Get a free quote for your project in 24 hours** — custom Hyva themes, theme customizer extensions, Tailwind design systems, performance optimization, and Adobe Commerce Cloud deployments.
+**What is Panth Theme Customizer?** It is a Magento 2 extension for Hyva storefronts that moves common theme configuration options into the admin panel. You control Google Fonts, custom CSS, header behavior, mini cart settings, and icon visibility without editing code or re-deploying theme files.
+
+**What does it add to my store?**
+
+- **Google Fonts** for body and heading text, loaded via CDN with a single admin dropdown.
+- **Custom CSS injection** per store view, output as an inline style tag on every page.
+- **Sticky header** with optional scroll-up reveal behavior.
+- **Top bar announcement strip** with configurable left and right text blocks.
+- **Free shipping progress bar** in the mini cart with a configurable threshold and custom messages.
+- **Header icon controls** to show or hide search, account, and mini cart icons, and set icon size and badge style.
+- **Tailwind CSS rebuild** triggered from admin via CLI commands or an AJAX button.
+
+**Which themes are supported?** Hyva (Tailwind-based). The module also ships Luma-compatible SVG header icons for stores that mix themes. Core Tailwind token management (colors, spacing, radius) is done through `theme-config.json` in your Hyva child theme.
+
+**What does it need?** Magento 2.4.4 to 2.4.8, PHP 8.1 to 8.4, and the free `mage2kishan/module-core` package.
+
+---
+
+## Need Custom Magento 2 Development?
+
+> **Get a free quote for your project in 24 hours** for custom modules, Hyva themes, performance work, M1 to M2 migrations, and Adobe Commerce Cloud.
 
 <p align="center">
   <a href="https://kishansavaliya.com/get-quote">
@@ -42,24 +57,24 @@ Beyond tokens, Theme Customizer ships ready-to-use storefront components: a conf
 <tr>
 <td width="50%" align="center">
 
-### 🏆 Kishan Savaliya
+### Kishan Savaliya
 **Top Rated Plus on Upwork**
 
 [![Hire on Upwork](https://img.shields.io/badge/Hire%20on%20Upwork-Top%20Rated%20Plus-14a800?style=for-the-badge&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~016dd1767321100e21)
 
-100% Job Success • 10+ Years Magento Experience
-Adobe Certified • Hyva Specialist
+100% Job Success - 10+ Years Magento Experience
+Adobe Certified - Hyva Specialist
 
 </td>
 <td width="50%" align="center">
 
-### 🏢 Panth Infotech Agency
+### Panth Infotech Agency
 **Magento Development Team**
 
 [![Visit Agency](https://img.shields.io/badge/Visit%20Agency-Panth%20Infotech-14a800?style=for-the-badge&logo=upwork&logoColor=white)](https://www.upwork.com/agencies/1881421506131960778/)
 
-Hyva Themes • Theme Customization • Tailwind Systems
-Performance • SEO • Adobe Commerce Cloud
+Custom Modules - Theme Design - Migrations
+Performance - SEO - Adobe Commerce Cloud
 
 </td>
 </tr>
@@ -71,19 +86,12 @@ Performance • SEO • Adobe Commerce Cloud
 
 ## Table of Contents
 
-- [Why Theme Customizer](#why-theme-customizer)
+- [Who Is It For](#who-is-it-for)
 - [Key Features](#key-features)
 - [Compatibility](#compatibility)
 - [Installation](#installation)
 - [Configuration](#configuration)
-- [Color Management](#color-management)
-- [Typography & Google Fonts](#typography--google-fonts)
-- [Tailwind CSS Integration](#tailwind-css-integration)
-- [Custom CSS Injection](#custom-css-injection)
-- [Header Configuration](#header-configuration)
-- [Sticky Header](#sticky-header)
-- [Free Shipping Progress Bar](#free-shipping-progress-bar)
-- [Icon Controls](#icon-controls)
+- [How It Works](#how-it-works)
 - [FAQ](#faq)
 - [Support](#support)
 - [About Panth Infotech](#about-panth-infotech)
@@ -91,78 +99,74 @@ Performance • SEO • Adobe Commerce Cloud
 
 ---
 
-## Why Theme Customizer
+## Who Is It For
 
-Hyva is the fastest Magento 2 storefront frontend in existence — but customizing it traditionally requires editing `tailwind.config.js`, running `npm run build-prod`, and deploying static content every time you want to change a color or swap a font. That workflow is fine for developers, but it's a blocker for merchants, designers, and marketing teams.
-
-**Theme Customizer bridges that gap.** Every design decision that used to require a developer now lives in `Stores → Configuration → Panth Extensions → Theme Customizer`:
-
-- Want to change the primary brand color for Black Friday? Open admin, pick a color, save.
-- Want to try a new Google Font for headings? Type the font name, save, done.
-- Want to toggle the sticky header on mobile only? Check a box.
-- Want to inject custom CSS for a one-off campaign? Paste it into the admin textarea.
-
-All changes are **multi-store scoped** — a different color palette per brand, per store view, per website.
+- **Merchants on Hyva** who want to change fonts, inject CSS, or toggle header options without asking a developer every time.
+- **Designers and marketing teams** who need to adjust the storefront appearance for campaigns or seasonal promotions without a code deploy.
+- **Store owners running multiple brands** who need different fonts or custom CSS per store view.
+- **Developers setting up Hyva stores** who want a clean admin UI for the most common runtime theme settings, while keeping visual tokens in `theme-config.json`.
 
 ---
 
 ## Key Features
 
-### Design Token Management
+### Google Fonts
 
-- **Color palette** — primary, secondary, accent, success, warning, error, info, neutral grays (11-step scale) — all editable via color picker
-- **CSS custom properties** — every token is emitted as a CSS variable (`--color-primary`, `--font-body`, `--radius-default`) for instant theming without rebuilds
-- **Border radius tokens** — small, default, large, full — applied across buttons, cards, inputs, modals
-- **Spacing tokens** — consistent padding and margin scales across the storefront
-
-### Typography
-
-- **Google Fonts integration** — pick any Google Font for body text, headings, and UI elements
-- **Font preloading** — automatic `<link rel="preload">` for critical fonts to eliminate FOUT
-- **Font-display optimization** — `font-display: swap` applied by default for performance
-- **Fallback stacks** — graceful fallbacks to system fonts if Google Fonts fail to load
-- **Font weight controls** — select which weights to load per font (400, 500, 600, 700, 800)
-
-### Tailwind CSS Integration
-
-- **Theme config JSON** — `etc/theme-config.json` exposes all tokens to the Hyva Tailwind build
-- **One-click rebuild** — `Rebuild Theme` button in admin triggers the Tailwind build from the UI
-- **`ThemeBuildExecutorInterface`** — implements the Panth Core contract so other modules can trigger builds too
-- **Automatic static content deploy** — after build, static assets are flushed so changes go live immediately
+- **Body font selector** - pick any Google Font from the admin dropdown for body text, paragraphs, buttons, and inputs.
+- **Heading font selector** - pick a separate font for h1-h6 elements, or leave it to follow the body font.
+- **Automatic CDN link injection** - the module generates the optimized Google Fonts `<link>` tag and adds it to `<head>` for you.
+- **System fonts option** - set either field to System Fonts to load nothing from CDN, which is the fastest option.
 
 ### Custom CSS Injection
 
-- **Per-store CSS textarea** — inject custom CSS that loads after the main stylesheet
-- **Critical CSS option** — mark CSS as critical to inline in `<head>` for above-the-fold styling
-- **Store-view scoped** — each store view can have its own custom CSS
+- **Per-store CSS textarea** in admin with a built-in ACE editor (beautify, validate, download, import).
+- **Backend validation** blocks dangerous patterns like script tags, JavaScript URLs, and event handler attributes.
+- **Inline output** as a `<style>` tag after the main stylesheet, so your rules take precedence without a theme deploy.
+- **Store-view scoped** - each store view can carry its own CSS block.
 
-### Header & Layout
+### Header Configuration
 
-- **Header layout variants** — centered logo, split navigation, minimal, classic left-logo
-- **Header height control** — set desktop and mobile header heights independently
-- **Sticky header** — enable sticky behavior with configurable scroll threshold
-- **Shrink-on-scroll** — optional header shrink animation when user scrolls
-- **Transparent header on homepage** — optional transparent overlay for hero sections
+- **Enable custom header** toggle to switch between the default theme header and the Panth header.
+- **Sticky header** with a configurable scroll-up reveal behavior (hide when scrolling down, show when scrolling up).
+- **Header height** setting in pixels for the content area.
+- **Container width** selector for the header content area.
 
-### Free Shipping Progress Bar
+### Top Bar Announcement Strip
 
-- **Dynamic progress bar** — displayed in cart and minicart showing progress toward free shipping threshold
-- **Configurable threshold** — set the free shipping minimum amount per store
-- **Custom messaging** — templated messages like "Add $25 more for free shipping!" and "🎉 You qualify for free shipping!"
-- **Color-aware** — uses your theme's primary and success colors automatically
+- **Enable top bar** toggle for an announcement bar above the header.
+- **Left side text** and **right side text** fields that support HTML for links, bold text, and other inline markup.
+- Common use: free shipping threshold message on the left, phone number or store hours on the right.
 
-### Icon Controls
+### Mini Cart and Free Shipping Progress Bar
 
-- **Icon library switcher** — choose between Heroicons (outline/solid), Lucide, or upload custom SVG sprite
-- **Icon size tokens** — small (16px), medium (20px), large (24px), xl (32px)
-- **Icon color inheritance** — icons inherit text color by default, with override per instance
+- **Free shipping progress bar** in the mini cart sidebar showing how close the cart total is to the threshold.
+- **Configurable threshold** - set the minimum order amount per store view.
+- **Progress message** with an `{amount}` placeholder. Example: `Add {amount} more for free shipping!`
+- **Success message** shown when the threshold is reached.
+- **Show/hide continue shopping button** in the mini cart.
+- **Show/hide cart subtotal** in the mini cart.
 
-### Security & Performance
+### Header Icon Controls
 
-- **MEQP compliant** — passes Adobe's Magento Extension Quality Program
-- **Cached output** — compiled CSS tokens are cached and invalidated only on config change
-- **Zero runtime overhead** — CSS variables are emitted once per page, no JS required for theming
-- **CSP-friendly** — custom CSS is nonce-tagged if Content Security Policy is active
+- **Toggle search, account, and mini cart icons** on or off.
+- **Cart counter badge style** - choose between circle, pill, or square badge shapes.
+- **Icon size** field in pixels (default: 24).
+
+### Tailwind CSS Build Integration
+
+- **`theme:customizer:build` CLI command** triggers the Tailwind build from the shell.
+- **`theme:customizer:check` CLI command** verifies the build environment.
+- **`theme:customizer:export-css` CLI command** exports compiled CSS.
+- **Admin AJAX build button** in the Theme Customizer configuration section.
+- **`ThemeBuildExecutorInterface` implementation** so other modules (including Panth Core) can trigger builds through a shared contract.
+- **Luma header compatibility** - SVG header icons, account dropdown, and top bar that match Hyva's icon style on Luma storefronts, removed automatically on Hyva via `default_hyva.xml`.
+
+### Architecture
+
+- **`theme-config.json`** in the child theme holds visual tokens (colors, spacing, radii, shadows) consumed by the Node.js Tailwind build script.
+- **CSS custom properties** generated from `theme-config.json` for colors and typography, emitted once in `<head>`.
+- **Constructor dependency injection only** - no ObjectManager usage.
+- **Multi-store scoped** - all admin settings respect default, website, and store view scope.
 
 ---
 
@@ -172,17 +176,11 @@ All changes are **multi-store scoped** — a different color palette per brand, 
 |---|---|
 | Magento Open Source | 2.4.4, 2.4.5, 2.4.6, 2.4.7, 2.4.8 |
 | Adobe Commerce | 2.4.4, 2.4.5, 2.4.6, 2.4.7, 2.4.8 |
-| Adobe Commerce Cloud | 2.4.4 — 2.4.8 |
+| Adobe Commerce Cloud | 2.4.4 to 2.4.8 |
 | PHP | 8.1.x, 8.2.x, 8.3.x, 8.4.x |
-| Hyva Theme | 1.3.0+ (required) |
-| Tailwind CSS | 3.x (bundled with Hyva) |
-| Node.js | 18.x, 20.x (for Tailwind build) |
-| Dependency | `mage2kishan/module-core` ^1.0 |
-
-Tested on:
-- Magento 2.4.8-p4 with Hyva 1.3.5 and PHP 8.4
-- Magento 2.4.7 with Hyva 1.3.0 and PHP 8.3
-- Magento 2.4.6 with Hyva 1.2.8 and PHP 8.2
+| Hyva Theme | 1.3+ (required for Tailwind build integration) |
+| Node.js | 18.x or 20.x (for Tailwind rebuild, not required at runtime) |
+| Required Dependency | `mage2kishan/module-core` (free) |
 
 ---
 
@@ -199,231 +197,119 @@ bin/magento setup:static-content:deploy -f
 bin/magento cache:flush
 ```
 
-### Rebuild Hyva Theme
-
-After installation, rebuild your Hyva theme to pick up the new Tailwind config:
-
-```bash
-cd app/design/frontend/<Vendor>/<theme>/web/tailwind
-npm install
-npm run build-prod
-```
-
-Or click the **Rebuild Theme** button in:
-```
-Admin → Stores → Configuration → Panth Extensions → Theme Customizer → Advanced
-```
-
 ### Manual Installation via ZIP
 
-1. Download the latest release ZIP from [Packagist](https://packagist.org/packages/mage2kishan/module-theme-customizer)
-2. Extract the contents to `app/code/Panth/ThemeCustomizer/`
-3. Run the commands above starting from `bin/magento module:enable`
+1. Download the latest release from [Packagist](https://packagist.org/packages/mage2kishan/module-theme-customizer) or from the [product page](https://kishansavaliya.com/magento-2-theme-customizer.html).
+2. Extract it to `app/code/Panth/ThemeCustomizer/` in your Magento install.
+3. Make sure `Panth_Core` is installed too (required dependency).
+4. Run the commands above starting from `bin/magento module:enable`.
 
 ### Verify Installation
 
 ```bash
 bin/magento module:status Panth_ThemeCustomizer
-# Expected output: Module is enabled
+# Expected: Module is enabled
+```
+
+After install, open:
+```
+Admin -> Stores -> Configuration -> Panth Extensions -> Theme Customizer
+Admin -> Stores -> Configuration -> Panth Extensions -> Header Configuration
 ```
 
 ---
 
 ## Configuration
 
-All settings live at `Stores → Configuration → Panth Extensions → Theme Customizer`. The configuration is split into logical groups:
+### Theme Customizer
 
-| Section | What It Controls |
-|---|---|
-| General | Master enable toggle, store scope, cache behavior |
-| Colors | Full color palette (primary, secondary, accent, semantic colors, neutrals) |
-| Typography | Body font, heading font, font weights, Google Fonts loader |
-| Layout | Container widths, spacing scale, border radius tokens |
-| Header | Layout variant, height, sticky behavior, transparent overlay |
-| Free Shipping Bar | Enable, threshold amount, messages |
-| Icons | Icon library, sizes, custom SVG sprite |
-| Custom CSS | Per-store CSS injection, critical CSS toggle |
-| Advanced | Rebuild theme button, clear cache, debug mode |
+Go to **Stores -> Configuration -> Panth Extensions -> Theme Customizer**.
 
----
+| Setting | Group | Default | Description |
+|---|---|---|---|
+| Body Font | Google Fonts | System Fonts | Google Font for body text. System Fonts loads nothing from CDN. |
+| Heading Font | Google Fonts | System Default | Google Font for h1-h6. Leave as System Default to follow body font. |
+| Custom CSS | Custom CSS | (empty) | CSS injected as inline `<style>` on every page. Scoped per store view. |
 
-## Color Management
+Visual design tokens (colors, spacing, radii, shadows, typography sizes) are configured in `theme-config.json` inside your Hyva child theme's `web/tailwind/` directory. After editing that file, run `node generate-theme-css.js` and `npm run build` in that directory, then flush the cache.
 
-The module defines a complete semantic color system following Tailwind conventions:
+### Header Configuration
 
-| Token | Purpose | Default |
-|---|---|---|
-| `primary` | Main brand color (buttons, links, focus rings) | `#0D9488` |
-| `secondary` | Secondary brand color | `#1E40AF` |
-| `accent` | Accent for callouts, badges | `#F59E0B` |
-| `success` | Success states, checkmarks, free shipping earned | `#16A34A` |
-| `warning` | Warnings, low stock | `#F59E0B` |
-| `error` | Errors, validation, out of stock | `#DC2626` |
-| `info` | Info banners | `#2563EB` |
-| `neutral-50` → `neutral-900` | 11-step gray scale | Tailwind defaults |
+Go to **Stores -> Configuration -> Panth Extensions -> Header Configuration**.
 
-Each color is editable via a native HTML5 color picker in admin and emitted as a CSS custom property:
-
-```css
-:root {
-  --color-primary: 13 148 136;
-  --color-secondary: 30 64 175;
-  --color-accent: 245 158 11;
-  /* ...etc */
-}
-```
+| Setting | Group | Default | Description |
+|---|---|---|---|
+| Enable Custom Header | General | No | Use the Panth custom header instead of the default theme header. |
+| Enable Sticky Header | General | No | Header stays fixed at the top when scrolling. |
+| Show on Scroll Up | General | No | Hide sticky header when scrolling down, show on scroll up. Requires sticky enabled. |
+| Enable Top Bar | Top Bar | No | Show the announcement bar above the header. |
+| Left Side Text | Top Bar | (empty) | Left side content. Supports HTML. |
+| Right Side Text | Top Bar | (empty) | Right side content. Supports HTML. |
+| Show Search Icon | Icons | Yes | Show or hide the search icon in the header. |
+| Show Account Icon | Icons | Yes | Show or hide the account icon in the header. |
+| Show Mini Cart Icon | Icons | Yes | Show or hide the mini cart icon. |
+| Cart Counter Badge Style | Icons | Circle | Shape of the item count badge on the cart icon. |
+| Icon Size (px) | Icons | 24 | Size of header icons in pixels. |
+| Show Free Shipping Progress | Mini Cart | No | Progress bar toward free shipping in the mini cart sidebar. |
+| Free Shipping Threshold | Mini Cart | 99 | Minimum order amount for free shipping. |
+| Progress Message | Mini Cart | (template) | Message with `{amount}` placeholder while progress is incomplete. |
+| Success Message | Mini Cart | (template) | Message shown when threshold is reached. |
+| Show Continue Shopping Button | Mini Cart | Yes | Show or hide the continue shopping button in the mini cart. |
+| Show Cart Subtotal | Mini Cart | Yes | Show or hide the cart subtotal in the mini cart. |
+| Container Width | Layout | (theme default) | Width of the header content area. |
+| Header Height (px) | Layout | 80 | Height of the header in pixels. |
 
 ---
 
-## Typography & Google Fonts
+## How It Works
 
-Typography is configured in the **Typography** section. You can choose any font from the Google Fonts library for:
-
-- **Body font** — applied to `<body>` and inherited by default
-- **Heading font** — applied to `h1`–`h6`
-- **UI font** — optional separate font for buttons, navigation, form inputs
-
-For each font, you select which weights to load. The module generates the optimized Google Fonts stylesheet URL with:
-
-- `display=swap` for FOUT prevention
-- Multiple families in a single request
-- Preconnect hints to `fonts.gstatic.com`
-- Preload for critical weights
-
-Example output in `<head>`:
-
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap">
-```
-
----
-
-## Tailwind CSS Integration
-
-Theme Customizer writes its tokens to `etc/theme-config.json`, which is read by the Hyva theme's `tailwind.config.js` via the `ThemeConfig` view model. This means:
-
-1. **CSS variable changes** (colors, fonts, radius) take effect instantly with no rebuild
-2. **Tailwind-class-driven changes** (spacing scale, breakpoints, max-widths) require a Tailwind rebuild
-
-The **Rebuild Theme** button in admin calls `Panth\ThemeCustomizer\Model\BuildExecutor`, which runs `npm run build-prod` in the active Hyva theme's `web/tailwind` directory and flushes static content. Progress and errors are streamed back to the admin UI.
-
----
-
-## Custom CSS Injection
-
-The **Custom CSS** textarea lets you inject arbitrary CSS per store view. Common use cases:
-
-- Brand-specific overrides that don't warrant a full theme
-- Short-lived campaign styling (Black Friday banner, holiday promo)
-- Fixing a single selector without a theme deploy
-- A/B testing CSS changes
-
-Injected CSS loads after the main stylesheet, so your rules take precedence. If Content Security Policy is active, the module automatically nonces the `<style>` tag.
-
-For critical above-the-fold CSS, enable the **Inline Critical** toggle to emit the CSS directly in `<head>` instead of a linked stylesheet.
-
----
-
-## Header Configuration
-
-Pre-built header layouts are selectable from a dropdown:
-
-| Layout | Description |
-|---|---|
-| Classic | Logo left, search center, mini-cart right (Hyva default) |
-| Centered | Logo centered, nav below |
-| Split Nav | Nav split around centered logo |
-| Minimal | Just logo and mini-cart, no search bar visible |
-| Transparent Overlay | Floating over hero image on homepage only |
-
-Each layout supports independent **desktop height** and **mobile height** settings in pixels.
-
----
-
-## Sticky Header
-
-The sticky header is fully configurable:
-
-| Setting | Default | Description |
-|---|---|---|
-| Enable Sticky | Yes | Master toggle |
-| Scroll Threshold | 100px | Pixels scrolled before sticky activates |
-| Enable on Mobile | Yes | Toggle for small screens |
-| Shrink on Scroll | No | Animate header to smaller height when sticky |
-| Hide on Scroll Down | No | Hide sticky header when scrolling down, show on scroll up |
-
-Implementation uses Alpine.js with `IntersectionObserver` — no jQuery, no scroll listeners — for buttery-smooth performance.
-
----
-
-## Free Shipping Progress Bar
-
-The Free Shipping Progress Bar appears in the cart drawer and full cart page. It calculates the difference between the current subtotal and the configured free shipping threshold, then renders a visual progress bar with a live message.
-
-**Example messages:**
-
-- `Add $25.00 more for free shipping!` (in progress)
-- `🎉 You qualify for free shipping!` (earned)
-- `You saved $0 on shipping!` (below threshold with inline savings highlight)
-
-Colors automatically match your theme palette (primary for fill, success for earned state), so the progress bar looks native to your brand with zero styling effort.
-
----
-
-## Icon Controls
-
-Select your icon library from a dropdown:
-
-- **Heroicons Outline** — clean line icons (default)
-- **Heroicons Solid** — filled icons for emphasis
-- **Lucide** — modern open-source icon set
-- **Custom SVG Sprite** — upload your own SVG sprite and map icon names
-
-Icon sizes are standardized as Tailwind utilities:
-- `icon-sm` (16×16)
-- `icon-md` (20×20)
-- `icon-lg` (24×24)
-- `icon-xl` (32×32)
-
-Colors inherit from `currentColor` by default, meaning icons match the surrounding text color automatically.
+1. **Google Fonts** - on each page request, the module reads the admin-selected fonts, builds the Google Fonts CDN URL with `display=swap`, and injects a `<link>` tag into `<head>`. No font files are hosted locally.
+2. **Custom CSS** - the admin textarea value is read at render time and output as an inline `<style>` tag after the main stylesheet. Backend validation runs when you save, blocking any patterns that could introduce XSS.
+3. **Header and icons** - an Alpine.js-powered header block reads the admin settings via a view model and toggles sticky behavior, scroll-up reveal, and icon visibility at runtime. No jQuery is needed.
+4. **Top bar** - rendered as a separate block above the header, with left and right text fields. HTML is allowed so you can include links.
+5. **Free shipping bar** - the mini cart block reads the configured threshold, compares it to the current cart subtotal, and renders a progress bar with the configured messages. It updates reactively via Alpine.js when the cart changes.
+6. **Tailwind rebuild** - the `BuildExecutor` model runs `npm run build-prod` in the active Hyva child theme's `web/tailwind/` directory and flushes static content. This is available as a CLI command or an admin AJAX button.
+7. **`theme-config.json`** - visual tokens (colors, spacing, radii) live here and are read by the Tailwind build script. CSS custom properties generated from this file are emitted in `<head>` so color changes without Tailwind class changes take effect without a rebuild.
 
 ---
 
 ## FAQ
 
-### Do changes require a Tailwind rebuild every time?
-
-No. Color, font, and radius changes use CSS custom properties and take effect instantly. Only changes to Tailwind-class-driven tokens (custom spacing scales, new breakpoints) require a rebuild via the **Rebuild Theme** button.
-
 ### Does this work with Luma?
 
-No. Theme Customizer is built specifically for Hyva's Tailwind-based architecture. For Luma stores, use Magento's built-in Design Configuration.
+Mostly no. The Google Fonts loader, custom CSS, and free shipping bar work on any theme. The sticky header, top bar, and icon controls are designed for Hyva's Alpine.js architecture. The module ships separate Luma-compatible SVG header icons that are loaded on Luma and removed on Hyva automatically.
 
-### Can I have different colors per store view?
+### Do I need to run a Tailwind rebuild every time I change something?
 
-Yes. All Theme Customizer settings respect Magento's scope hierarchy — default, website, and store view — so each brand can have its own palette.
+No. Google Fonts, custom CSS, sticky header, top bar, icon settings, and free shipping bar all work without a rebuild. Only changes to `theme-config.json` (colors, spacing tokens, radii) that affect Tailwind utility classes require the `npm run build` step.
 
-### Will my custom Hyva child theme break?
+### Can I have different settings per store view?
 
-No. Theme Customizer reads your active Hyva child theme and writes tokens into its Tailwind config. If your child theme already overrides tokens, you can disable Theme Customizer for those specific tokens.
+Yes. All settings in both configuration sections respect Magento's scope hierarchy: default, website, and store view. Each store view can have its own fonts, custom CSS, free shipping threshold, and header configuration.
+
+### Is the custom CSS safe to use?
+
+The module validates the CSS value before saving. It rejects script tags, JavaScript URLs (`javascript:`), and event handler attributes. Ordinary CSS rules save without restriction.
 
 ### Does the free shipping bar work with multi-currency?
 
-Yes. The threshold is stored in base currency and converted per store view automatically using Magento's standard currency conversion.
+Yes. The threshold is stored in your base currency. The comparison to the cart subtotal uses Magento's standard subtotal calculation, which already handles currency conversion for each store view.
 
-### Can I export and import my theme settings?
+### Can I export the Theme Customizer settings?
 
-Yes. Use Magento's standard config export (`bin/magento config:show` / `config:set`) to move settings between environments. All Theme Customizer paths start with `panth_theme_customizer/*`.
+Yes. Use `bin/magento config:show` and `bin/magento config:set` to move settings between environments. All Theme Customizer paths start with `theme_customizer/*` and all Header Configuration paths start with `panth_header/*`.
 
-### Is the source code available?
+### Does this module need Node.js installed on the server?
 
-Yes. The full source is on GitHub at [github.com/mage2sk/module-theme-customizer](https://github.com/mage2sk/module-theme-customizer).
+Only for the Tailwind rebuild commands (`theme:customizer:build`). Runtime features like Google Fonts, custom CSS injection, sticky header, and free shipping bar have no Node.js dependency. If your CI pipeline handles static content deployment, you do not need Node.js on the production server.
 
-### Does the module slow down the frontend?
+### Does Panth Theme Customizer need Panth Core?
 
-No. All CSS variables are emitted once in `<head>`, Google Fonts are preloaded, and the progress bar uses Alpine.js (already loaded by Hyva). Zero additional JS libraries are added to your storefront.
+Yes. `mage2kishan/module-core` is a free, required dependency. Composer installs it for you automatically.
+
+### Is the source code on GitHub?
+
+Yes. The full source is at [github.com/mage2sk/module-theme-customizer](https://github.com/mage2sk/module-theme-customizer).
 
 ---
 
@@ -431,6 +317,7 @@ No. All CSS variables are emitted once in `<head>`, Google Fonts are preloaded, 
 
 | Channel | Contact |
 |---|---|
+| Product Page | [kishansavaliya.com/magento-2-theme-customizer.html](https://kishansavaliya.com/magento-2-theme-customizer.html) |
 | Email | kishansavaliyakb@gmail.com |
 | Website | [kishansavaliya.com](https://kishansavaliya.com) |
 | WhatsApp | +91 84012 70422 |
@@ -440,9 +327,9 @@ No. All CSS variables are emitted once in `<head>`, Google Fonts are preloaded, 
 
 Response time: 1-2 business days.
 
-### 💼 Need Custom Hyva Development?
+### Need Custom Magento Development?
 
-Looking for **custom Hyva theme development**, **Tailwind design systems**, **theme customizer extensions**, or **storefront performance optimization**? Get a free quote in 24 hours:
+Looking for **custom Magento module development**, **Hyva theme work**, **store migrations**, or **performance tuning**? Get a free quote in 24 hours:
 
 <p align="center">
   <a href="https://kishansavaliya.com/get-quote">
@@ -459,48 +346,46 @@ Looking for **custom Hyva theme development**, **Tailwind design systems**, **th
     <img src="https://img.shields.io/badge/Visit-Panth%20Infotech%20Agency-14a800?style=for-the-badge&logo=upwork&logoColor=white" alt="Visit Agency" />
   </a>
   &nbsp;&nbsp;
-  <a href="https://kishansavaliya.com">
-    <img src="https://img.shields.io/badge/Visit%20Website-kishansavaliya.com-0D9488?style=for-the-badge" alt="Visit Website" />
+  <a href="https://kishansavaliya.com/magento-2-theme-customizer.html">
+    <img src="https://img.shields.io/badge/View%20Product%20Page-magento--2--theme--customizer-0D9488?style=for-the-badge" alt="View Product Page" />
   </a>
 </p>
-
----
-
-## License
-
-Panth Theme Customizer is distributed under a proprietary license — see `LICENSE.txt`. A single license permits installation on one Magento production domain and its associated staging/development environments.
 
 ---
 
 ## About Panth Infotech
 
-Built and maintained by **Kishan Savaliya** — [kishansavaliya.com](https://kishansavaliya.com) — a **Top Rated Plus** Magento developer on Upwork with 10+ years of eCommerce experience and a deep specialization in Hyva themes and Tailwind design systems.
+Built and maintained by **Kishan Savaliya** ([kishansavaliya.com](https://kishansavaliya.com)), a **Top Rated Plus** Magento developer on Upwork with 10+ years of eCommerce experience.
 
-**Panth Infotech** is a Magento 2 development agency focused on high-performance Hyva storefronts, custom module development, and merchant-empowering admin tools. Our extension suite spans SEO, performance, checkout, product presentation, customer engagement, and store management — over 34 modules built to MEQP standards and tested across Magento 2.4.4 to 2.4.8.
+**Panth Infotech** is a Magento 2 development agency that builds high quality, security focused extensions and themes for both Hyva and Luma storefronts. The extension suite covers SEO, performance, checkout, product presentation, customer engagement, and store management, with each module built to MEQP standards and tested across Magento 2.4.4 to 2.4.8.
 
-Browse the full extension catalog on the [Adobe Commerce Marketplace](https://commercemarketplace.adobe.com) or [Packagist](https://packagist.org/packages/mage2kishan/).
+Browse the full extension catalog on our [Magento extensions page](https://kishansavaliya.com/magento-extensions.html) or on [Packagist](https://packagist.org/packages/mage2kishan/).
 
-### Quick Links
+---
 
-- 🌐 **Website:** [kishansavaliya.com](https://kishansavaliya.com)
-- 💬 **Get a Quote:** [kishansavaliya.com/get-quote](https://kishansavaliya.com/get-quote)
-- 👨‍💻 **Upwork Profile (Top Rated Plus):** [upwork.com/freelancers/~016dd1767321100e21](https://www.upwork.com/freelancers/~016dd1767321100e21)
-- 🏢 **Upwork Agency:** [upwork.com/agencies/1881421506131960778](https://www.upwork.com/agencies/1881421506131960778/)
-- 📦 **Packagist:** [packagist.org/packages/mage2kishan/module-theme-customizer](https://packagist.org/packages/mage2kishan/module-theme-customizer)
-- 🐙 **GitHub:** [github.com/mage2sk/module-theme-customizer](https://github.com/mage2sk/module-theme-customizer)
-- 🛒 **Adobe Marketplace:** [commercemarketplace.adobe.com](https://commercemarketplace.adobe.com)
-- 📧 **Email:** kishansavaliyakb@gmail.com
-- 📱 **WhatsApp:** +91 84012 70422
+## Quick Links
+
+| Resource | Link |
+|---|---|
+| **Product Page** | [magento-2-theme-customizer.html](https://kishansavaliya.com/magento-2-theme-customizer.html) |
+| **Packagist** | [mage2kishan/module-theme-customizer](https://packagist.org/packages/mage2kishan/module-theme-customizer) |
+| **GitHub** | [mage2sk/module-theme-customizer](https://github.com/mage2sk/module-theme-customizer) |
+| **Website** | [kishansavaliya.com](https://kishansavaliya.com) |
+| **Free Quote** | [kishansavaliya.com/get-quote](https://kishansavaliya.com/get-quote) |
+| **Upwork (Top Rated Plus)** | [Hire Kishan Savaliya](https://www.upwork.com/freelancers/~016dd1767321100e21) |
+| **Upwork Agency** | [Panth Infotech](https://www.upwork.com/agencies/1881421506131960778/) |
+| **Email** | kishansavaliyakb@gmail.com |
+| **WhatsApp** | +91 84012 70422 |
 
 ---
 
 <p align="center">
-  <strong>Ready to transform your Hyva storefront design workflow?</strong><br/>
-  <a href="https://kishansavaliya.com/get-quote">
-    <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Get%20Started%20%E2%86%92-Free%20Quote%20in%2024h-DC2626?style=for-the-badge" alt="Get Started" />
+  <strong>Ready to configure your Hyva storefront from the admin panel?</strong><br/>
+  <a href="https://kishansavaliya.com/magento-2-theme-customizer.html">
+    <img src="https://img.shields.io/badge/%F0%9F%9A%80%20See%20Theme%20Customizer%20%E2%86%92-Product%20Page%20%26%20Details-DC2626?style=for-the-badge" alt="See Theme Customizer" />
   </a>
 </p>
 
 ---
 
-**SEO Keywords:** magento 2 theme customizer, hyva theme builder, css custom properties, google fonts magento, tailwind magento, theme tokens, hyva theme configuration, magento 2 color palette, magento 2 typography, hyva sticky header, free shipping progress bar magento, magento 2 custom css, hyva tailwind config, magento 2 header layouts, hyva icon library, heroicons magento, lucide icons magento, magento 2 design system, hyva child theme customization, tailwind design tokens, magento 2 admin theme editor, backend driven theme, hyva theme customization, magento 2 brand manager, multi-store theme, store view color palette, panth theme customizer, panth infotech, hire magento developer upwork, top rated plus magento freelancer, kishan savaliya magento, hyva performance optimization, magento 2.4.8 hyva, php 8.4 hyva, mage2kishan, mage2sk, magento marketplace developer, custom hyva development india, magento 2 hyva development, magento 2 performance optimization, adobe commerce cloud expert, tailwind css magento
+**SEO Keywords:** magento 2 theme customizer, hyva theme customizer, magento 2 google fonts, magento 2 custom css, hyva sticky header, free shipping progress bar magento, magento 2 header configuration, hyva theme builder, magento 2 admin theme editor, magento 2 topbar announcement, hyva tailwind css admin, magento 2 mini cart free shipping bar, hyva theme configuration, magento 2 custom css extension, magento 2 google fonts extension, hyva header icons, magento 2 sticky header, magento 2 free shipping bar, magento 2 header height, magento 2 hyva theme settings, panth theme customizer, mage2kishan theme customizer, magento 2.4.8 hyva, php 8.4 hyva, tailwind css magento 2, hyva 1.3 extension, magento 2 store view css, magento 2 per store font, custom css magento storefront, kishan savaliya magento, panth infotech, hire magento developer, top rated plus upwork, magento 2 hyva development, adobe commerce hyva extension
