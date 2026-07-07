@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright © Panth Infotech. All rights reserved.
- * Documentation Page Controller
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Controller\Adminhtml\Documentation;
@@ -13,15 +9,8 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
-    /**
-     * @var PageFactory
-     */
     protected $resultPageFactory;
 
-    /**
-     * @param Context $context
-     * @param PageFactory $resultPageFactory
-     */
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory
@@ -30,11 +19,6 @@ class Index extends Action
         $this->resultPageFactory = $resultPageFactory;
     }
 
-    /**
-     * Documentation page
-     *
-     * @return \Magento\Framework\View\Result\Page
-     */
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
@@ -44,11 +28,6 @@ class Index extends Action
         return $resultPage;
     }
 
-    /**
-     * Check permission
-     *
-     * @return bool
-     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Panth_ThemeCustomizer::config');

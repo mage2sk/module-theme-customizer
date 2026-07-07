@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Shadow Options Source Model
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Model\Config\Source;
@@ -11,11 +7,6 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class Shadow implements OptionSourceInterface
 {
-    /**
-     * Get shadow options
-     *
-     * @return array
-     */
     public function toOptionArray()
     {
         return [

@@ -1,11 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * ExportCss CLI Command - DEPRECATED
- *
- * CSS export from database is no longer needed.
- * Theme config is now in theme-config.json, processed by Node.js build script.
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Console\Command;

@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Google Fonts Loader Block
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Block;
@@ -13,16 +9,8 @@ use Panth\ThemeCustomizer\Helper\Data as ThemeHelper;
 
 class GoogleFonts extends Template
 {
-    /**
-     * @var ThemeHelper
-     */
     protected $themeHelper;
 
-    /**
-     * @param Context $context
-     * @param ThemeHelper $themeHelper
-     * @param array $data
-     */
     public function __construct(
         Context $context,
         ThemeHelper $themeHelper,
@@ -32,11 +20,6 @@ class GoogleFonts extends Template
         parent::__construct($context, $data);
     }
 
-    /**
-     * Get unique font families to load
-     *
-     * @return array
-     */
     public function getFontsToLoad()
     {
         $fonts = [];
@@ -55,15 +38,8 @@ class GoogleFonts extends Template
         return array_unique($fonts);
     }
 
-    /**
-     * Check if font is a Google Font
-     *
-     * @param string $font
-     * @return bool
-     */
     protected function isGoogleFont($font)
     {
-        // System fonts don't need to be loaded from Google
         $systemFonts = ['system-ui', '-apple-system', 'sans-serif', 'serif', 'monospace'];
         foreach ($systemFonts as $sysFont) {
             if (str_contains($font, $sysFont)) {
@@ -73,24 +49,12 @@ class GoogleFonts extends Template
         return true;
     }
 
-    /**
-     * Extract font name from font family string
-     *
-     * @param string $fontFamily
-     * @return string
-     */
     protected function extractFontName($fontFamily)
     {
-        // Extract font name: "'Inter', sans-serif" -> "Inter"
         preg_match("/'([^']+)'/", $fontFamily, $matches);
         return $matches[1] ?? $fontFamily;
     }
 
-    /**
-     * Get Google Fonts URL
-     *
-     * @return string|null
-     */
     public function getGoogleFontsUrl()
     {
         $fonts = $this->getFontsToLoad();
@@ -99,10 +63,8 @@ class GoogleFonts extends Template
             return null;
         }
 
-        // Build Google Fonts URL with weights
         $fontParams = [];
         foreach ($fonts as $font) {
-            // Load multiple weights for better flexibility
             $fontParams[] = str_replace(' ', '+', $font) . ':wght@300;400;500;600;700;800';
         }
 

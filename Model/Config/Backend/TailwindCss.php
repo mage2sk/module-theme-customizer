@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Tailwind CSS Backend Model
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Model\Config\Backend;
@@ -19,20 +15,8 @@ use Magento\Framework\Data\Collection\AbstractDb;
 
 class TailwindCss extends Value
 {
-    /**
-     * @var TypeListInterface
-     */
     protected $cacheTypeList;
 
-    /**
-     * @param Context $context
-     * @param Registry $registry
-     * @param ScopeConfigInterface $config
-     * @param TypeList $cacheTypeList
-     * @param AbstractResource|null $resource
-     * @param AbstractDb|null $resourceCollection
-     * @param array $data
-     */
     public function __construct(
         Context $context,
         Registry $registry,
@@ -46,39 +30,23 @@ class TailwindCss extends Value
         parent::__construct($context, $registry, $config, $cacheTypeList, $resource, $resourceCollection, $data);
     }
 
-    /**
-     * Validate before save
-     *
-     * @return $this
-     * @throws LocalizedException
-     */
     public function beforeSave()
     {
         $value = $this->getValue();
 
         if ($value) {
-            // Validate balanced braces
             $this->validateBalancedBraces($value);
 
-            // Validate Tailwind directives
             $this->validateTailwindDirectives($value);
 
-            // Validate CSS syntax
             $this->validateCssSyntax($value);
 
-            // Check for dangerous code
             $this->validateSecurity($value);
         }
 
         return parent::beforeSave();
     }
 
-    /**
-     * Validate balanced braces
-     *
-     * @param string $value
-     * @throws LocalizedException
-     */
     protected function validateBalancedBraces($value)
     {
         $openBraces = substr_count($value, '{');
@@ -100,15 +68,8 @@ class TailwindCss extends Value
         }
     }
 
-    /**
-     * Validate Tailwind directives
-     *
-     * @param string $value
-     * @throws LocalizedException
-     */
     protected function validateTailwindDirectives($value)
     {
-        // Check for @theme blocks
         if (preg_match('/@theme\s*{/', $value)) {
             if (!preg_match('/@theme\s*{[^}]*}/s', $value)) {
                 throw new LocalizedException(
@@ -117,7 +78,6 @@ class TailwindCss extends Value
             }
         }
 
-        // Check for @utility blocks
         if (preg_match('/@utility\s+[\w-]+\s*{/', $value)) {
             if (!preg_match('/@utility\s+[\w-]+\s*{[^}]*}/s', $value)) {
                 throw new LocalizedException(
@@ -126,7 +86,6 @@ class TailwindCss extends Value
             }
         }
 
-        // Disallow dangerous directives
         $disallowedDirectives = ['@import', '@charset', '@namespace'];
         foreach ($disallowedDirectives as $directive) {
             if (stripos($value, $directive) !== false) {
@@ -137,35 +96,24 @@ class TailwindCss extends Value
         }
     }
 
-    /**
-     * Validate basic CSS syntax
-     *
-     * @param string $value
-     * @throws LocalizedException
-     */
     protected function validateCssSyntax($value)
     {
-        // Check for valid CSS property format (property: value;)
         if (preg_match('/([a-z-]+)\s*:\s*[^;]*;/i', $value)) {
-            // Valid CSS properties found
             return;
         }
 
-        // If it contains braces but no valid properties, it might be invalid
         if (preg_match('/\{[^}]*\}/s', $value) && !preg_match('/([a-z-]+)\s*:/i', $value)) {
             throw new LocalizedException(
                 __('Invalid CSS: No valid CSS properties found. Expected format: property: value;')
             );
         }
 
-        // Check for multiple semicolons (typo)
         if (preg_match('/;;+/', $value)) {
             throw new LocalizedException(
                 __('Invalid CSS: Multiple consecutive semicolons found.')
             );
         }
 
-        // Check for missing semicolons in property blocks
         if (preg_match('/{[^}]*[a-z-]+\s*:[^;{}]+}/is', $value)) {
             throw new LocalizedException(
                 __('Invalid CSS: Missing semicolon after CSS property value.')
@@ -173,12 +121,6 @@ class TailwindCss extends Value
         }
     }
 
-    /**
-     * Validate security - check for dangerous code
-     *
-     * @param string $value
-     * @throws LocalizedException
-     */
     protected function validateSecurity($value)
     {
         $dangerousPatterns = [
@@ -201,14 +143,8 @@ class TailwindCss extends Value
         }
     }
 
-    /**
-     * After save - clear cache
-     *
-     * @return $this
-     */
     public function afterSave()
     {
-        // Clear view_preprocessed cache when CSS is updated
         $this->cacheTypeList->invalidate('layout');
         $this->cacheTypeList->invalidate('block_html');
         $this->cacheTypeList->invalidate('full_page');

@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Color Picker Frontend Model
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Block\Adminhtml\System\Config;
@@ -12,22 +8,16 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 
 class ColorPicker extends Field
 {
-    /**
-     * @param AbstractElement $element
-     * @return string
-     */
     protected function _getElementHtml(AbstractElement $element)
     {
         $value = $element->getData('value') ?: '#000000';
         $elementId = $element->getHtmlId();
         $elementName = $element->getName();
 
-        // Escape all values for safe HTML output
         $escapedId = $this->escapeHtmlAttr($elementId);
         $escapedName = $this->escapeHtmlAttr($elementName);
         $escapedValue = $this->escapeHtmlAttr($value);
 
-        // Create our own input instead of using getElementHtml()
         $html = '<input type="hidden" id="' . $escapedId . '" name="' . $escapedName . '" value="' . $escapedValue . '" class="input-text admin__control-text" />';
 
         $html .= '

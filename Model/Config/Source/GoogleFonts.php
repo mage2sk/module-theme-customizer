@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Google Fonts Source Model
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Model\Config\Source;
@@ -11,11 +7,6 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class GoogleFonts implements OptionSourceInterface
 {
-    /**
-     * Get popular Google Fonts options
-     *
-     * @return array
-     */
     public function toOptionArray()
     {
         return [

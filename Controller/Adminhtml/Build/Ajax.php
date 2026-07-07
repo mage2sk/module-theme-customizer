@@ -1,10 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * AJAX Build Controller for Theme Customizer
- *
- * Simplified: Only runs npm build. CSS export is no longer needed.
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Controller\Adminhtml\Build;
@@ -17,32 +11,14 @@ use Psr\Log\LoggerInterface;
 
 class Ajax extends Action
 {
-    /**
-     * Authorization level
-     */
     const ADMIN_RESOURCE = 'Panth_ThemeCustomizer::config';
 
-    /**
-     * @var JsonFactory
-     */
     private $resultJsonFactory;
 
-    /**
-     * @var BuildExecutor
-     */
     private $buildExecutor;
 
-    /**
-     * @var LoggerInterface
-     */
     private $logger;
 
-    /**
-     * @param Context $context
-     * @param JsonFactory $resultJsonFactory
-     * @param BuildExecutor $buildExecutor
-     * @param LoggerInterface $logger
-     */
     public function __construct(
         Context $context,
         JsonFactory $resultJsonFactory,
@@ -55,11 +31,6 @@ class Ajax extends Action
         $this->logger = $logger;
     }
 
-    /**
-     * Execute AJAX build request
-     *
-     * @return \Magento\Framework\Controller\Result\Json
-     */
     public function execute()
     {
         $resultJson = $this->resultJsonFactory->create();

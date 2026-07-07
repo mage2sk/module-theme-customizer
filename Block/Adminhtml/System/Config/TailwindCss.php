@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Tailwind CSS Editor Frontend Model
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Block\Adminhtml\System\Config;
@@ -12,10 +8,6 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 
 class TailwindCss extends Field
 {
-    /**
-     * @param AbstractElement $element
-     * @return string
-     */
     protected function _getElementHtml(AbstractElement $element)
     {
         $element->setStyle('font-family: monospace; width: 100%; min-height: 400px;');
@@ -183,7 +175,6 @@ class TailwindCss extends Field
                                 }
 
                                 showStatus(msg, "success");
-
                             } catch(error) {
                                 showStatus("✗ Import failed: " + error.message, "error");
                             }

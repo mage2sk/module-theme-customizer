@@ -1,11 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Build Theme CLI Command
- *
- * Simplified: Only runs npm build. CSS export from database is no longer needed.
- * Theme config is now in theme-config.json.
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Console\Command;
@@ -20,15 +13,8 @@ class BuildTheme extends Command
 {
     const OPTION_FORCE = 'force';
 
-    /**
-     * @var BuildExecutor
-     */
     protected $buildExecutor;
 
-    /**
-     * @param BuildExecutor $buildExecutor
-     * @param string|null $name
-     */
     public function __construct(
         BuildExecutor $buildExecutor,
         $name = null
@@ -37,9 +23,6 @@ class BuildTheme extends Command
         parent::__construct($name);
     }
 
-    /**
-     * Configure command
-     */
     protected function configure()
     {
         $this->setName('theme:customizer:build')
@@ -52,13 +35,6 @@ class BuildTheme extends Command
             );
     }
 
-    /**
-     * Execute command
-     *
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Hyva Theme Customizer Build</info>');
@@ -99,7 +75,6 @@ class BuildTheme extends Command
             $output->writeln('<info>Theme built successfully!</info>');
 
             return Command::SUCCESS;
-
         } catch (\Exception $e) {
             $output->writeln('<error>Error: ' . $e->getMessage() . '</error>');
             return Command::FAILURE;

@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Check Requirements CLI Command
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Console\Command;
@@ -14,15 +10,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CheckRequirements extends Command
 {
-    /**
-     * @var BuildExecutor
-     */
     protected $buildExecutor;
 
-    /**
-     * @param BuildExecutor $buildExecutor
-     * @param string|null $name
-     */
     public function __construct(
         BuildExecutor $buildExecutor,
         $name = null
@@ -31,22 +20,12 @@ class CheckRequirements extends Command
         parent::__construct($name);
     }
 
-    /**
-     * Configure command
-     */
     protected function configure()
     {
         $this->setName('theme:customizer:check')
             ->setDescription('Check theme build requirements');
     }
 
-    /**
-     * Execute command
-     *
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Theme Customizer Build Requirements Check</info>');
@@ -56,7 +35,6 @@ class CheckRequirements extends Command
         $status = $this->buildExecutor->getRequirementsStatus();
         $allPassed = true;
 
-        // Check Node.js
         if ($status['node_installed']) {
             $output->writeln('<info>✓ Node.js is installed</info>');
         } else {
@@ -64,7 +42,6 @@ class CheckRequirements extends Command
             $allPassed = false;
         }
 
-        // Check npm
         if ($status['npm_installed']) {
             $output->writeln('<info>✓ npm is installed</info>');
         } else {
@@ -72,7 +49,6 @@ class CheckRequirements extends Command
             $allPassed = false;
         }
 
-        // Check Tailwind directory
         if ($status['tailwind_dir_exists']) {
             $output->writeln('<info>✓ Tailwind directory exists</info>');
             $output->writeln('  Path: ' . $status['tailwind_directory']);
@@ -82,7 +58,6 @@ class CheckRequirements extends Command
             $allPassed = false;
         }
 
-        // Check package.json
         if ($status['package_json_exists']) {
             $output->writeln('<info>✓ package.json exists</info>');
         } else {
@@ -90,7 +65,6 @@ class CheckRequirements extends Command
             $allPassed = false;
         }
 
-        // Check write permissions
         if ($status['tailwind_dir_writable']) {
             $output->writeln('<info>✓ Tailwind directory is writable</info>');
         } else {

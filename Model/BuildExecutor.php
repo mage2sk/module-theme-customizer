@@ -1,11 +1,4 @@
 <?php
-/**
- * Copyright (c) Panth Infotech. All rights reserved.
- * Build Executor - Executes Tailwind build via npm
- *
- * Simplified: No longer exports CSS from database.
- * Theme config is now in theme-config.json, read directly by the Node.js build script.
- */
 declare(strict_types=1);
 
 namespace Panth\ThemeCustomizer\Model;
@@ -20,43 +13,18 @@ use Psr\Log\LoggerInterface;
 
 class BuildExecutor implements ThemeBuildExecutorInterface
 {
-    /**
-     * @var Filesystem
-     */
     protected $filesystem;
 
-    /**
-     * @var CacheManager
-     */
     protected $cacheManager;
 
-    /**
-     * @var LoggerInterface
-     */
     protected $logger;
 
-    /**
-     * @var Shell
-     */
     protected $shell;
 
-    /**
-     * @var DesignInterface
-     */
     protected $design;
 
-    /**
-     * @var string Fallback theme path if active theme has no tailwind directory
-     */
     protected $fallbackThemePath = 'frontend/Panth/Infotech';
 
-    /**
-     * @param Filesystem $filesystem
-     * @param CacheManager $cacheManager
-     * @param LoggerInterface $logger
-     * @param Shell $shell
-     * @param DesignInterface $design
-     */
     public function __construct(
         Filesystem $filesystem,
         CacheManager $cacheManager,
@@ -71,17 +39,11 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         $this->design = $design;
     }
 
-    /**
-     * Run npm build and clear cache.
-     *
-     * @inheritDoc
-     */
     public function exportAndBuild(bool $forceNpmBuild = false): array
     {
         try {
             $this->logger->info('[BuildExecutor] Starting build (theme-config.json mode)');
 
-            // Run npm build
             $this->logger->info('[BuildExecutor] Running npm build...');
             $buildStart = microtime(true);
             $buildResult = $this->buildOnly();
@@ -93,7 +55,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
                 return array_merge($buildResult, ['stats' => []]);
             }
 
-            // Clear Magento cache
             $this->logger->info('[BuildExecutor] Clearing Magento cache...');
             $this->clearCache();
 
@@ -118,11 +79,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         }
     }
 
-    /**
-     * Export CSS only - DEPRECATED, returns no-op result
-     *
-     * @return array ['path' => string, 'stats' => array]
-     */
     public function exportOnly()
     {
         $this->logger->info('[BuildExecutor] exportOnly() is deprecated - CSS is now generated from theme-config.json');
@@ -134,15 +90,9 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         ];
     }
 
-    /**
-     * Build Tailwind only (run npm build)
-     *
-     * @return array ['success' => bool, 'message' => string, 'output' => string]
-     */
     public function buildOnly()
     {
         try {
-            // Validate Node.js is available
             if (!$this->validateNodeInstalled()) {
                 return [
                     'success' => false,
@@ -151,7 +101,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
                 ];
             }
 
-            // Get tailwind directory path
             $tailwindDir = $this->getTailwindDirectory();
 
             if (!is_dir($tailwindDir)) {
@@ -162,7 +111,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
                 ];
             }
 
-            // Check if package.json exists
             if (!file_exists($tailwindDir . '/package.json')) {
                 return [
                     'success' => false,
@@ -171,7 +119,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
                 ];
             }
 
-            // Detect npm path for cross-environment compatibility
             $npmPath = $this->detectNpmPath();
             if (!$npmPath) {
                 return [
@@ -181,7 +128,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
                 ];
             }
 
-            // Execute npm run build
             $this->logger->info('Running npm build in: ' . $tailwindDir . ' using npm: ' . $npmPath);
 
             $npmBinDir = dirname($npmPath);
@@ -225,11 +171,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         }
     }
 
-    /**
-     * Validate Node.js is installed
-     *
-     * @return bool
-     */
     public function validateNodeInstalled()
     {
         try {
@@ -240,11 +181,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         }
     }
 
-    /**
-     * Validate npm is installed
-     *
-     * @return bool
-     */
     public function validateNpmInstalled()
     {
         try {
@@ -255,16 +191,10 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         }
     }
 
-    /**
-     * Get Tailwind directory path
-     *
-     * @return string
-     */
     protected function getTailwindDirectory()
     {
         $appDir = $this->filesystem->getDirectoryRead(DirectoryList::APP)->getAbsolutePath();
 
-        // Try active theme's tailwind directory first
         $activeThemePath = $this->getActiveThemePath();
         if ($activeThemePath) {
             $activeDir = $appDir . 'design/frontend/' . $activeThemePath . '/web/tailwind';
@@ -273,15 +203,9 @@ class BuildExecutor implements ThemeBuildExecutorInterface
             }
         }
 
-        // Fallback to parent theme path
         return $appDir . 'design/' . $this->fallbackThemePath . '/web/tailwind';
     }
 
-    /**
-     * Get the active theme path from Magento's design configuration
-     *
-     * @return string|null
-     */
     protected function getActiveThemePath()
     {
         try {
@@ -293,9 +217,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         }
     }
 
-    /**
-     * Clear Magento cache
-     */
     protected function clearCache()
     {
         try {
@@ -316,11 +237,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         }
     }
 
-    /**
-     * Get build requirements status
-     *
-     * @return array
-     */
     public function getRequirementsStatus()
     {
         $tailwindDir = $this->getTailwindDirectory();
@@ -335,14 +251,8 @@ class BuildExecutor implements ThemeBuildExecutorInterface
         ];
     }
 
-    /**
-     * Detect npm path with cross-environment compatibility
-     *
-     * @return string|null
-     */
     protected function detectNpmPath()
     {
-        // Method 1: Check common NVM installation paths
         $homeDir = getenv('HOME') ?: (getenv('USERPROFILE') ?: '/root');
         $nvmPaths = [
             $homeDir . '/.nvm/versions/node',
@@ -368,7 +278,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
             }
         }
 
-        // Method 2: Try 'which npm' command
         try {
             $whichOutput = $this->shell->execute('which npm');
             $whichPath = trim($whichOutput);
@@ -377,10 +286,8 @@ class BuildExecutor implements ThemeBuildExecutorInterface
                 return $whichPath;
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
-            // which command failed, continue to next method
         }
 
-        // Method 3: Check common system installation paths
         $systemPaths = [
             '/usr/local/bin/npm',
             '/usr/bin/npm',
@@ -395,7 +302,6 @@ class BuildExecutor implements ThemeBuildExecutorInterface
             }
         }
 
-        // Method 4: Try using PATH environment variable
         $pathEnv = getenv('PATH');
         if ($pathEnv) {
             $paths = explode(':', $pathEnv);
