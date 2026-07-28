@@ -1,5 +1,5 @@
 /**
- * Panth ThemeCustomizer — Global Luma Style Overrides
+ * Panth ThemeCustomizer - Global Luma Style Overrides
  * Applies Hyva Panth/Infotech design system to ALL Luma pages
  * Replaces default Luma grays (#ccc, #f2f2f2, #e8e8e8 etc.) with modern design tokens
  *
@@ -10,7 +10,7 @@
 & when (@media-common = true) {
 
     // =============================================
-    // 1. TYPOGRAPHY — DM Sans, proper sizing/colors
+    // 1. TYPOGRAPHY - DM Sans, proper sizing/colors
     // =============================================
     body {
         font-family: 'DM Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
@@ -30,14 +30,14 @@
 
     p { color: #404040; line-height: 1.6; }
 
-    // HR — replaces default #ccc border
+    // HR - replaces default #ccc border
     hr {
         border-top: 1px solid @panth-gray-200 !important;
         border-bottom: none;
     }
 
     // =============================================
-    // 2. LINKS — Teal primary color (exclude footer, header, menu areas)
+    // 2. LINKS - Teal primary color (exclude footer, header, menu areas)
     // =============================================
     .page-main a,
     .page-main a:visited,
@@ -54,7 +54,7 @@
     }
 
     // =============================================
-    // 3. GLOBAL BORDER OVERRIDE — Kill all #ccc borders
+    // 3. GLOBAL BORDER OVERRIDE - Kill all #ccc borders
     // =============================================
     .page-wrapper,
     .page-main,
@@ -63,7 +63,7 @@
     }
 
     // =============================================
-    // 4. BUTTONS — Primary (teal), Secondary (outline)
+    // 4. BUTTONS - Primary (teal), Secondary (outline)
     // =============================================
     // Base button font
     .action.primary,
@@ -118,7 +118,7 @@
         padding: 4px !important;
     }
 
-    // Secondary button (outline teal) — replaces #eee/#cdcdcd default buttons
+    // Secondary button (outline teal) - replaces #eee/#cdcdcd default buttons
     button,
     .action.secondary,
     .action-secondary,
@@ -174,7 +174,7 @@
     }
 
     // =============================================
-    // 5. FORM ELEMENTS — Clean borders, teal focus
+    // 5. FORM ELEMENTS - Clean borders, teal focus
     // =============================================
     input[type="text"],
     input[type="email"],
@@ -196,7 +196,7 @@
         box-shadow: none !important;
     }
 
-    // Selects — need extra right padding for arrow, proper height & line-height
+    // Selects - need extra right padding for arrow, proper height & line-height
     select,
     .toolbar select,
     .sorter select,
@@ -253,7 +253,7 @@
         outline: none !important;
     }
 
-    // Cart summary specific selects — ensure text is not cut off
+    // Cart summary specific selects - ensure text is not cut off
     .cart-summary select,
     .form-shipping-address select,
     .checkout-container select {
@@ -290,7 +290,7 @@
     }
 
     // =============================================
-    // 6. MESSAGES — Success, Error, Warning, Info
+    // 6. MESSAGES - Success, Error, Warning, Info
     // =============================================
     .message {
         font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
@@ -340,7 +340,7 @@
     }
 
     // =============================================
-    // 7. CARDS & PANELS — Rounded, subtle borders (replace #ccc panels)
+    // 7. CARDS & PANELS - Rounded, subtle borders (replace #ccc panels)
     // =============================================
     .block,
     .block-content {
@@ -370,7 +370,7 @@
     }
 
     // =============================================
-    // 8. PRODUCT LISTING — Clean cards
+    // 8. PRODUCT LISTING - Clean cards
     // =============================================
     .products-grid .product-item {
         font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
@@ -446,7 +446,7 @@
         color: #EAB308;
     }
 
-    // Product tabs — replace default #ccc borders
+    // Product tabs - replace default #ccc borders
     .product.data.items {
         border-color: @panth-gray-200 !important;
     }
@@ -497,7 +497,7 @@
     }
 
     // =============================================
-    // 10. CART PAGE — full overrides (replaces _cart.less #ccc borders)
+    // 10. CART PAGE - full overrides (replaces _cart.less #ccc borders)
     // =============================================
     .cart-container {
         font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
@@ -690,7 +690,7 @@
         padding: 20px;
     }
 
-    // Account info blocks — replace default borders
+    // Account info blocks - replace default borders
     .account .box-information,
     .account .box-billing-address,
     .account .box-shipping-address,
@@ -747,7 +747,7 @@
     }
 
     // =============================================
-    // 12. PAGINATION — teal active page (replaces #e5e5e5)
+    // 12. PAGINATION - teal active page (replaces #e5e5e5)
     // =============================================
     .pages .items .item a,
     .pages .items .item strong {
@@ -771,7 +771,7 @@
     }
 
     // =============================================
-    // 13. TABLES — All pages (orders, wishlists, etc.)
+    // 13. TABLES - All pages (orders, wishlists, etc.)
     // =============================================
     table {
         font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
@@ -799,7 +799,7 @@
     }
 
     // =============================================
-    // 14. LAYERED NAVIGATION (filters) — replace #ccc borders
+    // 14. LAYERED NAVIGATION (filters) - replace #ccc borders
     // =============================================
     .filter-options-title {
         font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
@@ -946,7 +946,7 @@
     }
 
     // =============================================
-    // 17. MODALS & POPUPS — replace #adadad/#c1c1c1 borders
+    // 17. MODALS & POPUPS - replace #adadad/#c1c1c1 borders
     // =============================================
     .modal-popup,
     .modal-slide {
@@ -993,7 +993,7 @@
     }
 
     // =============================================
-    // 18. DROPDOWNS — replace #e8e8e8 hover
+    // 18. DROPDOWNS - replace #e8e8e8 hover
     // =============================================
     .ui-menu,
     .dropdown-menu,
@@ -1084,7 +1084,7 @@
     }
 
     // =============================================
-    // 23. CMS PAGES — general content
+    // 23. CMS PAGES - general content
     // =============================================
     .cms-page-view .page-main {
         font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
@@ -1099,7 +1099,7 @@
         padding-bottom: 24px !important;
     }
 
-    // Checkout page — remove all page-main padding (checkout manages its own spacing)
+    // Checkout page - remove all page-main padding (checkout manages its own spacing)
     .checkout-index-index .page-main {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
@@ -1115,7 +1115,7 @@
         color: @panth-gray-950;
     }
 
-    // Product page — proper spacing between gallery and info
+    // Product page - proper spacing between gallery and info
     .catalog-product-view .column.main {
         padding-top: 0 !important;
     }
@@ -1124,7 +1124,7 @@
         padding-top: 8px;
     }
 
-    // Category listing page — proper spacing
+    // Category listing page - proper spacing
     .catalog-category-view .page-title-wrapper {
         margin-bottom: 24px;
     }
@@ -1151,7 +1151,7 @@
         border-radius: 8px;
     }
 
-    // Loading overlay — replaces default rgba bg
+    // Loading overlay - replaces default rgba bg
     .loading-mask {
         background: rgba(255, 255, 255, 0.7) !important;
     }
@@ -1166,7 +1166,7 @@
     }
 
     // =============================================
-    // 25. FOOTER AREA — override any remaining #ccc
+    // 25. FOOTER AREA - override any remaining #ccc
     // =============================================
     .page-footer {
         border-top: none !important;

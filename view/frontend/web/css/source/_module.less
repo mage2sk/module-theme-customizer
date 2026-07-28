@@ -1,5 +1,5 @@
 /**
- * Panth ThemeCustomizer — Luma Header, Breadcrumbs & Global Overrides
+ * Panth ThemeCustomizer - Luma Header, Breadcrumbs & Global Overrides
  * Matches Hyva Panth/Infotech design system across ALL pages
  */
 
@@ -12,7 +12,7 @@
 & when (@media-common = true) {
 
     // =============================================
-    // TOP BAR — dark bg, white text
+    // TOP BAR - dark bg, white text
     // =============================================
     .page-header .panel.wrapper {
         background-color: #171717;
@@ -40,7 +40,7 @@
         color: inherit;
     }
 
-    // Hide header links in top bar (Sign In, Create Account) — moved to account icon dropdown
+    // Hide header links in top bar (Sign In, Create Account) - moved to account icon dropdown
     .page-header .panel.header .header.links {
         display: none !important;
     }
@@ -51,7 +51,7 @@
     }
 
     // =============================================
-    // MAIN HEADER — Logo | Menu | Icons
+    // MAIN HEADER - Logo | Menu | Icons
     // =============================================
     .page-header {
         background: #fff;
@@ -73,7 +73,7 @@
         box-sizing: border-box;
     }
 
-    // Logo — left (order 1)
+    // Logo - left (order 1)
     .page-header .header.content .logo {
         flex-shrink: 0;
         order: 1;
@@ -99,7 +99,7 @@
         display: none !important;
     }
 
-    // Hide Luma's minicart icon — keep wrapper for JS but zero-size it
+    // Hide Luma's minicart icon - keep wrapper for JS but zero-size it
     .page-header .header.content .minicart-wrapper {
         position: static !important;
         width: 0 !important;
@@ -126,7 +126,7 @@
     }
 
     // =============================================
-    // PANTH HEADER ICONS — SVG Lucide icons (Search, Account, Cart)
+    // PANTH HEADER ICONS - SVG Lucide icons (Search, Account, Cart)
     // =============================================
     .panth-header-icons {
         display: flex !important;
@@ -230,7 +230,7 @@
     }
 
     // =============================================
-    // SEARCH BAR — full-width below header on click
+    // SEARCH BAR - full-width below header on click
     // =============================================
     .panth-search-bar {
         position: absolute;
@@ -342,7 +342,7 @@
     }
 
     // =============================================
-    // BREADCRUMBS — full-width light gray bar, DM Sans
+    // BREADCRUMBS - full-width light gray bar, DM Sans
     // =============================================
     .breadcrumbs {
         font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
@@ -392,7 +392,7 @@
     }
 
     // =============================================
-    // MINICART DRAWER — right-side panel matching Hyva
+    // MINICART DRAWER - right-side panel matching Hyva
     // jQuery UI dialog renders at <body> level, so use global selectors
     // =============================================
     .block-minicart {
@@ -423,7 +423,7 @@
         }
     }
 
-    // Content wrapper — takes remaining space, scrollable
+    // Content wrapper - takes remaining space, scrollable
     .block-minicart #minicart-content-wrapper {
         display: flex !important;
         flex-direction: column !important;
@@ -443,7 +443,7 @@
         display: block !important;
     }
 
-    // Close button — top-right X (must override ALL global button styles)
+    // Close button - top-right X (must override ALL global button styles)
     #btn-minicart-close,
     .block-minicart .action.close,
     .block-minicart button.action.close,
@@ -560,7 +560,7 @@
         font-size: 15px;
     }
 
-    // Cart items list — scrollable, takes available space
+    // Cart items list - scrollable, takes available space
     .block-minicart .minicart-items-wrapper {
         flex: 1 !important;
         overflow-y: auto !important;
@@ -614,7 +614,7 @@
         display: none !important;
     }
 
-    // Individual cart item — flex row: image left, details right
+    // Individual cart item - flex row: image left, details right
     .block-minicart .minicart-items .product-item {
         padding: 16px 0 !important;
         border-top: none !important;
@@ -663,7 +663,7 @@
         color: #1f2937 !important;
     }
 
-    // Product image — square with rounded corners
+    // Product image - square with rounded corners
     .block-minicart .minicart-items .product-image-container {
         width: 72px !important;
         height: 72px !important;
@@ -683,13 +683,13 @@
         border: 1px solid #f3f4f6;
     }
 
-    // Product details — use flex row for bottom line (price + qty + actions)
+    // Product details - use flex row for bottom line (price + qty + actions)
     .block-minicart .minicart-items .product-item-details {
         display: flex !important;
         flex-direction: column !important;
     }
 
-    // Product item pricing — inline with qty
+    // Product item pricing - inline with qty
     .block-minicart .minicart-items .product-item-pricing {
         display: flex !important;
         align-items: center !important;
@@ -731,7 +731,7 @@
         margin: 0 !important;
     }
 
-    // Update button — small teal pill
+    // Update button - small teal pill
     .block-minicart .minicart-items .update-cart-item {
         font-size: 11px !important;
         padding: 3px 8px !important;
@@ -748,7 +748,7 @@
         background: #0F766E !important;
     }
 
-    // Edit + Delete icons — SAME ROW as pricing, pushed to far right
+    // Edit + Delete icons - SAME ROW as pricing, pushed to far right
     .block-minicart .minicart-items .product .actions,
     .block-minicart .minicart-items .product-item .actions {
         position: absolute !important;
@@ -831,7 +831,7 @@
         margin: 0 !important;
     }
 
-    // Checkout buttons — pinned to bottom
+    // Checkout buttons - pinned to bottom
     .block-minicart .block-content > .actions {
         padding: 16px 0 0 !important;
         margin: 0 !important;
@@ -939,7 +939,7 @@
 }
 
 // =============================================
-// DESKTOP OVERRIDES — beat Luma's desktop-specific rules
+// DESKTOP OVERRIDES - beat Luma's desktop-specific rules
 // =============================================
 @media screen and (min-width: 768px) {
 
@@ -1022,7 +1022,7 @@
 // =============================================
 @media screen and (max-width: 767px) {
 
-    // Mobile top bar — must override Luma's mobile styles
+    // Mobile top bar - must override Luma's mobile styles
     .page-header .panel.wrapper {
         background-color: #171717 !important;
     }
@@ -1041,7 +1041,7 @@
         color: #F5F5F5 !important;
     }
 
-    // Mobile minicart — full width on small screens
+    // Mobile minicart - full width on small screens
     .block-minicart {
         width: 100vw !important;
         max-width: 100vw !important;

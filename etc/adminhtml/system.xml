@@ -4,8 +4,8 @@
  * Copyright (c) Panth Infotech. All rights reserved.
  * Theme Customizer System Configuration
  *
- * Visual styling (colors, spacing, sizing) → theme-config.json
- * Operational settings (toggles, fonts, custom CSS) → this admin config
+ * Visual styling (colors, spacing, sizing) -> theme-config.json
+ * Operational settings (toggles, fonts, custom CSS) -> this admin config
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

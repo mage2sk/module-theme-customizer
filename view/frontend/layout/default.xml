@@ -15,7 +15,7 @@
                    template="Panth_ThemeCustomizer::google-fonts.phtml"
                    before="-"/>
 
-            <!-- Custom CSS from Admin (Stores → Panth Theme → Custom Tailwind CSS) -->
+            <!-- Custom CSS from Admin (Stores -> Panth Theme -> Custom Tailwind CSS) -->
             <block class="Panth\ThemeCustomizer\Block\CustomCss"
                    name="theme.customizer.custom.css"
                    template="Panth_ThemeCustomizer::custom-css.phtml"/>
