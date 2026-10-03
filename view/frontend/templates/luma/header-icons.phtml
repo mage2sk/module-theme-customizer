@@ -1,0 +1,294 @@
+<?php
+/**
+ * Panth ThemeCustomizer - Luma Header Icons (Search, Account, Cart)
+ * Matches Hyva's Lucide icon style: SVG, 24x24, stroke-width 1.5
+ * Injected into header-wrapper via layout XML
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+/** @var \Panth\ThemeCustomizer\ViewModel\HeaderIcons $viewModel */
+$viewModel = $block->getData('view_model');
+
+$isLoggedIn = $viewModel->isLoggedIn();
+$showSearch = $viewModel->isSearchIconEnabled();
+$showAccount = $viewModel->isAccountIconEnabled();
+$showCart = $viewModel->isMinicartIconEnabled();
+?>
+<div class="panth-header-icons" id="panth-header-icons">
+    <?php if ($showSearch): ?>
+    <!-- Search Icon -->
+    <button class="panth-icon panth-icon-search" id="panth-search-toggle"
+            aria-label="<?= $escaper->escapeHtmlAttr(__('Search')) ?>"
+            type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+             stroke-width="1.5" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.34-4.34"/>
+        </svg>
+    </button>
+    <?php endif; ?>
+
+    <?php if ($showAccount): ?>
+    <!-- Account Icon -->
+    <div class="panth-icon panth-icon-account" id="panth-account-toggle">
+        <button aria-label="<?= $escaper->escapeHtmlAttr(__('My Account')) ?>"
+                type="button" class="panth-account-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                 stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                 stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+        </button>
+        <div class="panth-account-dropdown" id="panth-account-dropdown" style="display:none;">
+            <?php if ($isLoggedIn): ?>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('customer/account')) ?>">My Account</a>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('sales/order/history')) ?>">My Orders</a>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('customer/account/logout')) ?>">Sign Out</a>
+            <?php else: ?>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('customer/account/login')) ?>">Sign In</a>
+                <a href="<?= $escaper->escapeUrl($viewModel->getUrl('customer/account/create')) ?>">Create an Account</a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <?php if ($showCart): ?>
+    <!-- Cart Icon - triggers Luma's built-in minicart -->
+    <button class="panth-icon panth-icon-cart" id="panth-cart-toggle"
+            aria-label="<?= $escaper->escapeHtmlAttr(__('Cart')) ?>"
+            type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+             stroke-width="1.5" viewBox="0 0 24 24">
+            <circle cx="8" cy="21" r="1"/>
+            <circle cx="19" cy="21" r="1"/>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+        </svg>
+        <span class="panth-cart-count" id="panth-cart-count" style="display:none;">0</span>
+    </button>
+    <?php endif; ?>
+</div>
+
+<?php if ($showSearch): ?>
+<!-- Search bar (full-width below header, hidden by default) -->
+<div class="panth-search-bar" id="panth-search-bar" style="display:none;">
+    <div class="panth-search-inner">
+        <form class="panth-search-form" action="<?= $escaper->escapeUrl($block->getUrl('catalogsearch/result')) ?>" method="get">
+            <input type="text" name="q" placeholder="<?= $escaper->escapeHtmlAttr(__('Search entire store here...')) ?>"
+                   class="panth-search-input" autocomplete="off" id="panth-search-input" /><button type="submit" class="panth-search-submit" aria-label="<?= $escaper->escapeHtmlAttr(__('Search')) ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                     stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.34-4.34"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+</div>
+<?php endif; ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+
+    var searchToggle = document.getElementById('panth-search-toggle');
+    var searchBar = document.getElementById('panth-search-bar');
+    var searchInput = document.getElementById('panth-search-input');
+    var accountBtn = document.querySelector('.panth-account-btn');
+    var accountDropdown = document.getElementById('panth-account-dropdown');
+    var accountToggle = document.getElementById('panth-account-toggle');
+    var cartToggle = document.getElementById('panth-cart-toggle');
+
+    // ═══ Close all popups helper ═══
+    function closeAll(except) {
+        if (except !== 'search' && searchBar) searchBar.style.display = 'none';
+        if (except !== 'account' && accountDropdown) accountDropdown.style.display = 'none';
+    }
+
+    // ═══ SEARCH TOGGLE ═══
+    if (searchToggle && searchBar) {
+        searchToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAll('search');
+            var isVisible = searchBar.style.display !== 'none';
+            searchBar.style.display = isVisible ? 'none' : 'block';
+            if (!isVisible && searchInput) {
+                setTimeout(function() { searchInput.focus(); }, 150);
+            }
+        });
+    }
+
+    // ═══ ACCOUNT DROPDOWN ═══
+    if (accountBtn && accountDropdown) {
+        accountBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAll('account');
+            var isVisible = accountDropdown.style.display !== 'none';
+            accountDropdown.style.display = isVisible ? 'none' : 'block';
+        });
+    }
+
+    var cartUrl = '<?= $escaper->escapeJs($viewModel->getUrl('checkout/cart')) ?>';
+    var cartOverlay = null;
+    var cartPending = false;
+    var cartWasOpen = false;
+
+    function minicartWrapper() {
+        return document.querySelector('.minicart-wrapper');
+    }
+
+    function isCartOpen() {
+        var wrapper = minicartWrapper();
+        return !!(wrapper && wrapper.classList.contains('active'));
+    }
+
+    function syncCartState() {
+        var open = isCartOpen();
+        var root = document.documentElement;
+        root.classList.toggle('panth-minicart-open', open);
+        if (open) {
+            root.classList.add('panth-overlay-open');
+            document.body.classList.add('panth-overlay-open');
+        } else if (cartWasOpen) {
+            if (!root.classList.contains('pmm-lock')) {
+                root.classList.remove('panth-overlay-open');
+            }
+            document.body.classList.remove('panth-overlay-open');
+            var block = document.querySelector('.block-minicart');
+            if (cartToggle && block && block.contains(document.activeElement)) {
+                cartToggle.focus();
+            }
+        }
+        if (cartToggle) {
+            cartToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        cartWasOpen = open;
+    }
+
+    function withMinicart(callback) {
+        if (typeof window.require !== 'function') {
+            window.location.href = cartUrl;
+            return;
+        }
+        if (cartPending) {
+            return;
+        }
+        cartPending = true;
+        window.require(['jquery'], function ($) {
+            var attempts = 0;
+            (function waitForMinicart() {
+                var el = $('.minicart-wrapper [data-role="dropdownDialog"]');
+                var ready = false;
+                if (el.length) {
+                    try {
+                        ready = !!el.dropdownDialog('instance');
+                    } catch (err) {
+                        ready = false;
+                    }
+                }
+                if (ready) {
+                    cartPending = false;
+                    callback(el);
+                    return;
+                }
+                attempts++;
+                if (attempts > 150) {
+                    cartPending = false;
+                    window.location.href = cartUrl;
+                    return;
+                }
+                setTimeout(waitForMinicart, 100);
+            })();
+        });
+    }
+
+    function closeCart() {
+        if (!isCartOpen()) {
+            return;
+        }
+        withMinicart(function (el) {
+            el.dropdownDialog('close');
+        });
+    }
+
+    if (cartToggle) {
+        cartToggle.setAttribute('aria-expanded', 'false');
+        cartToggle.setAttribute('aria-haspopup', 'dialog');
+        cartToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAll();
+            var wasOpen = isCartOpen();
+            withMinicart(function (el) {
+                if (wasOpen) {
+                    el.dropdownDialog('close');
+                } else if (!isCartOpen()) {
+                    el.dropdownDialog('open');
+                }
+            });
+        });
+
+        cartOverlay = document.createElement('div');
+        cartOverlay.className = 'panth-minicart-overlay';
+        cartOverlay.setAttribute('aria-hidden', 'true');
+        cartOverlay.addEventListener('click', closeCart);
+        document.body.appendChild(cartOverlay);
+
+        var cartWrapperEl = minicartWrapper();
+        if (cartWrapperEl) {
+            new MutationObserver(syncCartState).observe(cartWrapperEl, { attributes: true, attributeFilter: ['class'] });
+        }
+        syncCartState();
+    }
+
+    // ═══ Click outside closes everything ═══
+    document.addEventListener('click', function(e) {
+        if (searchBar && searchBar.style.display !== 'none' &&
+            !searchBar.contains(e.target) && !searchToggle.contains(e.target)) {
+            searchBar.style.display = 'none';
+        }
+        if (accountDropdown && accountDropdown.style.display !== 'none' &&
+            accountToggle && !accountToggle.contains(e.target)) {
+            accountDropdown.style.display = 'none';
+        }
+    });
+
+    // ═══ Escape closes everything ═══
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAll();
+            closeCart();
+        }
+    });
+
+    // ═══ Sync cart count from Luma's minicart counter ═══
+    var panthCounter = document.getElementById('panth-cart-count');
+    function syncCartCount() {
+        var lumaCounter = document.querySelector('.minicart-wrapper .counter.qty .counter-number');
+        if (lumaCounter && panthCounter) {
+            var count = parseInt(lumaCounter.textContent) || 0;
+            if (count > 0) {
+                panthCounter.textContent = count;
+                panthCounter.style.display = 'block';
+            } else {
+                panthCounter.style.display = 'none';
+            }
+        }
+    }
+
+    var lumaCounterEl = document.querySelector('.minicart-wrapper .counter.qty');
+    if (lumaCounterEl && panthCounter) {
+        var observer = new MutationObserver(syncCartCount);
+        observer.observe(lumaCounterEl, { childList: true, subtree: true, characterData: true });
+        setTimeout(syncCartCount, 2000);
+        setTimeout(syncCartCount, 5000);
+    }
+});
+</script>
