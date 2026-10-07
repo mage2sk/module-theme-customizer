@@ -1,0 +1,224 @@
+/**
+ * Copyright (c) Panth Infotech. All rights reserved.
+ */
+
+.documentation-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0;
+    padding: 0 0 60px;
+    color: #303030;
+    font-size: 14px;
+}
+
+.documentation-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 16px 20px;
+    box-sizing: border-box;
+}
+
+.documentation-sidebar .toc-header h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #41362f;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.documentation-sidebar .table-of-contents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.documentation-sidebar .table-of-contents li {
+    margin: 0;
+    padding: 0;
+}
+
+.documentation-sidebar .toc-link {
+    display: block;
+    padding: 4px 0;
+    color: #007bdb;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.documentation-sidebar .toc-link:hover,
+.documentation-sidebar .toc-link:focus {
+    text-decoration: underline;
+}
+
+.documentation-sidebar .toc-link.active {
+    color: #303030;
+    font-weight: 600;
+}
+
+.documentation-sidebar .toc-level-3 .toc-link {
+    padding-left: 14px;
+    font-size: 13px;
+}
+
+.documentation-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.documentation-content .content-inner {
+    max-width: 1100px;
+    line-height: 1.6;
+}
+
+.documentation-content h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 32px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #eb5202;
+    color: #41362f;
+}
+
+.documentation-content h2:first-child {
+    margin-top: 0;
+}
+
+.documentation-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 22px 0 8px;
+    color: #41362f;
+}
+
+.documentation-content h4,
+.documentation-content h5,
+.documentation-content h6 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 18px 0 6px;
+    color: #41362f;
+}
+
+.documentation-content p {
+    margin: 8px 0 12px;
+}
+
+.documentation-content ul,
+.documentation-content ol {
+    line-height: 1.7;
+    margin: 8px 0 14px 22px;
+    padding: 0;
+}
+
+.documentation-content li {
+    margin-bottom: 4px;
+}
+
+.documentation-content a {
+    color: #007bdb;
+    text-decoration: none;
+}
+
+.documentation-content a:hover,
+.documentation-content a:focus {
+    text-decoration: underline;
+}
+
+.documentation-content code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 13px;
+    color: #8b0000;
+    overflow-wrap: anywhere;
+}
+
+.documentation-content pre {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 14px 18px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.55;
+    margin: 12px 0;
+}
+
+.documentation-content pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+    overflow-wrap: normal;
+}
+
+.documentation-content .doc-table-wrap {
+    overflow-x: auto;
+    margin: 12px 0 20px;
+}
+
+.documentation-content table.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.documentation-content table.doc-table th {
+    background: #514943;
+    color: #fff;
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 13px;
+    vertical-align: top;
+}
+
+.documentation-content table.doc-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.documentation-content table.doc-table tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+.documentation-content blockquote {
+    background: #f5f9fc;
+    border-left: 4px solid #007bdb;
+    padding: 12px 16px;
+    margin: 14px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.documentation-content hr {
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+    margin: 24px 0;
+}
+
+@media (max-width: 1024px) {
+    .documentation-container {
+        flex-direction: column;
+    }
+
+    .documentation-sidebar {
+        position: static;
+        width: 100%;
+        max-height: none;
+    }
+}

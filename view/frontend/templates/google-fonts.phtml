@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright (c) Panth Infotech. All rights reserved.
+ * Google Fonts Loader Template
+ *
+ * @var \Panth\ThemeCustomizer\Block\GoogleFonts $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$fontsUrl = $block->getGoogleFontsUrl();
+?>
+<?php if ($fontsUrl): ?>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="<?= $escaper->escapeUrl($fontsUrl) ?>">
+<?php endif; ?>
